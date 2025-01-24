@@ -18,7 +18,9 @@ public class GameTimer : MonoBehaviour
             UpdateUI();
         }
     }
+
     public bool ShouldTick;
+    public bool RaceMode;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class GameTimer : MonoBehaviour
 
         // Setup
         Text = GetComponent<TMP_Text>();
-        Timer = StartTime;
+        if (!RaceMode) Timer = StartTime;
         UpdateUI();
 
         InvokeRepeating("TimerTick", 1f, 1f);
@@ -47,7 +49,8 @@ public class GameTimer : MonoBehaviour
             ShouldTick = false;
             Debug.Log("NO TIMEEEEEE!!!!!!!!!!!!!");
         }
-        Timer -= 1;
+
+        Timer += RaceMode ? 1 : -1;
     }
 
     void UpdateUI()
