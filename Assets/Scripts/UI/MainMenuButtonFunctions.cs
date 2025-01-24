@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class MainMenuButtonFunctions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public void QuitToDesktop()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
