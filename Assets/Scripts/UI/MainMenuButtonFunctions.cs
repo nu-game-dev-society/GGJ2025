@@ -1,8 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuButtonFunctions : MonoBehaviour
 {
-    
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
     public void QuitToDesktop()
     {
 #if UNITY_EDITOR
