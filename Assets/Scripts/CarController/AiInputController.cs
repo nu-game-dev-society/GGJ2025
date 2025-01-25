@@ -13,6 +13,10 @@ public class AiInputController : InputController
 
     public Rigidbody body;
 
+    private void Awake()
+    {
+        PlayerName = DriverNames.GetRandom();
+    }
     void Start()
     {
         currentSteerRequest = Vector3.zero;
@@ -49,7 +53,7 @@ public class AiInputController : InputController
 
         if (angle > 0.01f)
         {
-            Vector3 torque = axis * angle * Mathf.Deg2Rad * turnSpeed;
+            Vector3 torque = angle * Mathf.Deg2Rad * turnSpeed * axis;
             body.AddTorque(torque);
 
             body.angularVelocity *= 1f;
