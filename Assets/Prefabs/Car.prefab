@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9104123900774626751}
   - component: {fileID: 8657131205745452475}
   - component: {fileID: 7516336826925144446}
+  - component: {fileID: 8780359446016932330}
   m_Layer: 3
   m_Name: Car
   m_TagString: Player
@@ -85,15 +86,16 @@ MonoBehaviour:
   - {fileID: 7405515009832574237}
   - {fileID: 3679681142586691459}
   - {fileID: 5274128763766535733}
+  exhaustParticleSystem: {fileID: 8817098380986658090}
+  exhaustParticleSystemEmissionRateOverTimeBoostMultiplier: 10
   carRigidBody: {fileID: 8657131205745452475}
   angularDragWhenIdle: 5
   maxSpeedWithoutBoost: 20
   boostSpeedModifier: 10
-  boostAccelerationModifier: 1.5
   accelerationRate: 10
   handbrakeWeight: 5
-  isPitchControlInverted: 0
   steerRate: {x: 2, y: 2, z: 2}
+  inputs: {fileID: 8780359446016932330}
 --- !u!54 &8657131205745452475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,6 +144,24 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.85
   m_Center: {x: 0, y: 0.125, z: 0.2}
+--- !u!114 &8780359446016932330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763019478736750889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad675a7e037ce68478baaa941b101213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSteerRequest: {x: 0, y: 0, z: 0}
+  decelerationInput: 0
+  boostInput: 0
+  accelerationRequest: 0
+  isHandbrakeOn: 0
+  isPitchControlInverted: 0
 --- !u!1 &9113023654478407608
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +460,11 @@ Animator:
 --- !u!95 &7405515009832574237 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 464342045837107520, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_PrefabInstance: {fileID: 6968194571692080221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8817098380986658090 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1938975870947643767, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
   m_PrefabInstance: {fileID: 6968194571692080221}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8957952488002853012 stripped
