@@ -128,7 +128,9 @@ public class PlayerCarController : MonoBehaviour
 
         foreach (Animator propellorAnimator in this.propellorAnimators)
         {
-            propellorAnimator.SetFloat("Speed", this.currentSpeedRequest * Time.deltaTime * 10);
+            float oldPropellorSpeed = propellorAnimators[0].GetFloat("Speed");
+            float newPropellorSpeed = Mathf.Lerp(oldPropellorSpeed, this.currentSpeedRequest * Time.deltaTime *10, Time.deltaTime);
+            propellorAnimator.SetFloat("Speed", newPropellorSpeed);
         }
 
         this.isHandbrakeOn = Mathf.Approximately(1, this.handbrakeAction.ReadValue<float>());
