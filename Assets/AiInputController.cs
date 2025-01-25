@@ -12,7 +12,7 @@ public class AiInputController : InputController
     public float tStep = 1.0f;
     public float acceptanceV = 3.0f;
 
-   public Rigidbody body; 
+    public Rigidbody body;
 
     void Start()
     {
@@ -29,15 +29,17 @@ public class AiInputController : InputController
         pos = transform.position;
         target = splineContainer.EvaluatePosition(t);
 
-        if (Vector3.Distance(pos, target) < 4f)
+        if (Vector3.Distance(pos, target) < acceptanceV)
         {
-            t += tStep; 
-        }  
-         
+            t += tStep;
+            if (t >= 1.0f)
+                t -= 1.0f;
+        }
+
         dir = (target - pos).normalized;
 
         currentSteerRequest = Vector3.zero;
-         
+
         Quaternion targetRotation = Quaternion.LookRotation(dir);
 
         Quaternion currentRotation = transform.rotation;
