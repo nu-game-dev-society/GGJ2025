@@ -59,8 +59,10 @@ public class CarController : MonoBehaviour
         this.ProcessInputs();
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() 
     {
+        Debug.DrawRay(transform.position, inputs.currentSteerRequest, Color.red);
+
         // steer        
         this.carRigidBody.AddRelativeTorque(Vector3.Scale(inputs.currentSteerRequest, this.steerRate));
         this.carRigidBody.angularDrag = inputs.currentSteerRequest == Vector3.zero

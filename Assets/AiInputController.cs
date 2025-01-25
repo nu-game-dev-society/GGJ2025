@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -11,6 +12,7 @@ public class AiInputController : InputController
     public float tStep = 1.0f;
     public float acceptanceV = 3.0f;
 
+   public Rigidbody body; 
 
     void Start()
     {
@@ -27,42 +29,36 @@ public class AiInputController : InputController
         pos = transform.position;
         target = splineContainer.EvaluatePosition(t);
 
-        if (Vector3.Distance(pos, target) < acceptanceV)
+        if (Vector3.Distance(pos, target) < 4f)
         {
-            t += tStep;
-        }
-
+            t += tStep; 
+        }  
+         
         dir = (target - pos).normalized;
 
-
         currentSteerRequest = Vector3.zero;
+         
+        Quaternion targetRotation = Quaternion.LookRotation(dir);
 
-        //yaw
-        crossProduct = Vector3.Cross(dir, transform.forward);
-        float angle = Vector3.Angle(dir, transform.forward);
+        Quaternion currentRotation = transform.rotation;
+        Quaternion rotationDifference = targetRotation * Quaternion.Inverse(currentRotation);
 
-        if (crossProduct.y > 0)
+        rotationDifference.ToAngleAxis(out float angle, out Vector3 axis);
+
+        if (angle > 0.01f)
         {
-            currentSteerRequest.y = -angle; 
+            Vector3 torque = axis * angle * Mathf.Deg2Rad * 15f;
+            body.AddTorque(torque);
+
+            body.angularVelocity *= 1f;
         }
-        else
-        {
-            currentSteerRequest.y = angle;  
-        }
-        // Pitch (Vertical Rotation)
-        float targetHeight = target.y - pos.y; // Get vertical difference between target and turret
-        float targetDistance = new Vector3(dir.x, 0, dir.z).magnitude; // Horizontal distance between turret and target
-        pitchAngle = Mathf.Atan2(targetHeight, targetDistance) * Mathf.Rad2Deg; // Calculate pitch angle in degrees
-
-        currentSteerRequest.x = -pitchAngle;
 
 
-        currentSteerRequest.x = Mathf.Clamp(currentSteerRequest.x, -1.0f, 1.0f);//pitch
-        currentSteerRequest.y = Mathf.Clamp(currentSteerRequest.y, -1.0f, 1.0f);//yaw
+        accelerationRequest = 1f;
 
-
-        accelerationRequest = 1.0f;
+        //Debug.Log(currentSteerRequest);
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
