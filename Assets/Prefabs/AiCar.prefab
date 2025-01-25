@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7516336826925144446}
   - component: {fileID: 689877547447752839}
   - component: {fileID: 3223829740770102445}
+  - component: {fileID: 6877222880065382575}
   m_Layer: 3
   m_Name: AiCar
   m_TagString: Player
@@ -267,6 +268,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6877222880065382575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763019478736750889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a418f7ffc03fab41aa86098fb134a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints: []
+  DoLapEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9113023654478407608
 GameObject:
   m_ObjectHideFlags: 0
