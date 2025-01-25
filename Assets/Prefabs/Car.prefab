@@ -80,10 +80,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carRigidBody: {fileID: 8657131205745452475}
+  angularDragWhenIdle: 5
   maxSpeedWithoutBoost: 10
   boostSpeedModifier: 5
   boostAccelerationModifier: 1.5
   accelerationRate: 10
+  isPitchControlInverted: 1
 --- !u!54 &8657131205745452475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94,7 +96,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
