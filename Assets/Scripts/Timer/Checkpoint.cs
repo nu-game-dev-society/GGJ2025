@@ -7,7 +7,6 @@ public class Checkpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameTimer.Instance == null) gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,6 +19,6 @@ public class Checkpoint : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player")) return;
 
-        GameTimer.Instance.DoCheckpoint(this);
+        other.GetComponent<GameTimer>()?.DoCheckpoint(this);
     }
 }
