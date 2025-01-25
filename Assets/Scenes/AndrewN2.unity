@@ -747,22 +747,6 @@ MonoBehaviour:
   CameraRadius: 0.2
   DampingIntoCollision: 0
   DampingFromCollision: 2
---- !u!114 &829518507 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-  m_PrefabInstance: {fileID: 1902683491}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef26e778643bb8a4ebe769b308934829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!54 &829518509 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8657131205745452475, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-  m_PrefabInstance: {fileID: 1902683491}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1190835465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,33 +1286,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-      propertyPath: t
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-      propertyPath: body
-      value: 
-      objectReference: {fileID: 829518509}
-    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-      propertyPath: tStep
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-      propertyPath: acceptanceV
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
       propertyPath: splineContainer
       value: 
       objectReference: {fileID: 2052636868}
-    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-      propertyPath: currentSteerRequest.x
-      value: 0.35524127
-      objectReference: {fileID: 0}
-    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-      propertyPath: currentSteerRequest.y
-      value: -0.4552432
-      objectReference: {fileID: 0}
     - target: {fileID: 5763019478736750889, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
       propertyPath: m_Name
       value: AiCar
@@ -1373,10 +1333,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9104123900774626751, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
-      propertyPath: inputs
-      value: 
-      objectReference: {fileID: 829518507}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
