@@ -22,4 +22,12 @@ public class PhysicsBody : MonoBehaviour
         );
     }
 
+    [ContextMenu("Explode")]
+    public void Explode()
+    {
+        rb.AddForce(GetRandom() * force * 10);
+        rb.AddTorque(GetRandom() * rotForce * 2);
+
+    }
+
 }
