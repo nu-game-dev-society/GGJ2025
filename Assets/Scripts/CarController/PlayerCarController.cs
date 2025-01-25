@@ -7,22 +7,36 @@ public class PlayerCarController : MonoBehaviour
     Rigidbody carRigidBody;
 
     [SerializeField]
-    private float maxSpeedWithoutBoostMph = 100;
+    private float maxSpeedWithoutBoost = 100;
+
+    [SerializeField]
+    private float boostSpeedModifier = 1.5f;
+
+    [SerializeField]
+    private float boostAccelerationModifier = 1.5f;
 
     [SerializeField]
     private float accelerationRate = 10;
 
+    [SerializeField]
+    private bool isPitchControlInverted = true;
+
+    private Vector3 currentSteerRequest;
     private float currentSpeedRequest;
 
     private float currentSpeed = 0;
     private Vector3 currentVelocity;
 
+    private InputAction steerAction;
     private InputAction accelerateAction;
+    private InputAction boostAction;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.steerAction = InputSystem.actions.FindAction("Steer");
         this.accelerateAction = InputSystem.actions.FindAction("Accelerate");
+        this.boostAction = InputSystem.actions.FindAction("Boost");
     }
 
     // Update is called once per frame
@@ -33,6 +47,11 @@ public class PlayerCarController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // rotate
+        
+        this.carRigidBody.AddRelativeTorque(this.currentSteerRequest);
+
+        // add force
         this.currentSpeed = Mathf.Lerp(this.currentSpeed, this.currentSpeedRequest, Time.fixedDeltaTime * this.accelerationRate);
         this.currentVelocity = this.currentSpeed * this.transform.forward;
         this.carRigidBody.AddForce(this.currentVelocity, ForceMode.Acceleration);
@@ -40,7 +59,25 @@ public class PlayerCarController : MonoBehaviour
 
     private void ProcessInputs()
     {
+        // steer
+        this.currentSteerRequest = new Vector3(
+            isPitchControlInverted
+                ? this.steerAction.ReadValue<Vector2>().y
+                : -this.steerAction.ReadValue<Vector2>().y,
+            this.steerAction.ReadValue<Vector2>().x,
+            0
+        );
+
+        // accelerate
         float accelerationRequest = this.accelerateAction.ReadValue<float>();
-        this.currentSpeedRequest = this.maxSpeedWithoutBoostMph * accelerationRequest;
+
+        float boostInput = this.boostAction.ReadValue<float>();
+        float boostSpeed = boostInput * this.boostSpeedModifier;
+        float boostAcceleration = boostInput * this.boostAccelerationModifier;
+
+        float maxSpeed = this.maxSpeedWithoutBoost + boostSpeed;
+        accelerationRequest += boostAcceleration;
+
+        this.currentSpeedRequest =  maxSpeed * accelerationRequest;
     }
 }
