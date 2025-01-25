@@ -9,6 +9,8 @@ public class AiInputController : InputController
     public float tStep = 1.0f;
     public float acceptanceV = 3.0f;
 
+    public float turnSpeed = 15f;
+
     public Rigidbody body;
 
     void Start()
@@ -47,7 +49,7 @@ public class AiInputController : InputController
 
         if (angle > 0.01f)
         {
-            Vector3 torque = axis * angle * Mathf.Deg2Rad * 15f;
+            Vector3 torque = axis * angle * Mathf.Deg2Rad * turnSpeed;
             body.AddTorque(torque);
 
             body.angularVelocity *= 1f;
