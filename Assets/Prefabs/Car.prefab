@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7516336826925144446}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,11 +81,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carRigidBody: {fileID: 8657131205745452475}
   angularDragWhenIdle: 5
-  maxSpeedWithoutBoost: 10
-  boostSpeedModifier: 5
+  maxSpeedWithoutBoost: 20
+  boostSpeedModifier: 10
   boostAccelerationModifier: 1.5
   accelerationRate: 10
+  handbrakeWeight: 5
   isPitchControlInverted: 1
+  steerRate: {x: 2, y: 2, z: 2}
 --- !u!54 &8657131205745452475
 Rigidbody:
   m_ObjectHideFlags: 0

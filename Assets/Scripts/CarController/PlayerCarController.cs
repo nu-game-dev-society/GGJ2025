@@ -25,10 +25,18 @@ public class PlayerCarController : MonoBehaviour
     private float accelerationRate = 10;
 
     [SerializeField]
+    private float handbrakeWeight = 5f;
+
+    [Header("Steering")]
+    [SerializeField]
     private bool isPitchControlInverted = true;
+
+    [SerializeField]
+    private Vector3 steerRate = Vector3.one;
 
     private Vector3 currentSteerRequest;
     private float currentSpeedRequest;
+    private bool isHandbrakeOn;
 
     private float currentSpeed = 0;
     private Vector3 currentVelocity;
@@ -37,6 +45,7 @@ public class PlayerCarController : MonoBehaviour
     private InputAction accelerateAction;
     private InputAction decelerateAction;
     private InputAction boostAction;
+    private InputAction handbrakeAction;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +54,7 @@ public class PlayerCarController : MonoBehaviour
         this.accelerateAction = InputSystem.actions.FindAction("Accelerate");
         this.decelerateAction = InputSystem.actions.FindAction("Decelerate");
         this.boostAction = InputSystem.actions.FindAction("Boost");
+        this.handbrakeAction = InputSystem.actions.FindAction("Handbrake");
 
         this.angularDragWhenMoving = this.carRigidBody.angularDrag;
     }
@@ -58,13 +68,16 @@ public class PlayerCarController : MonoBehaviour
     private void FixedUpdate()
     {
         // steer        
-        this.carRigidBody.AddRelativeTorque(this.currentSteerRequest);
+        this.carRigidBody.AddRelativeTorque(Vector3.Scale(this.currentSteerRequest, this.steerRate));
         this.carRigidBody.angularDrag = this.currentSteerRequest == Vector3.zero
             ? this.angularDragWhenIdle
             : this.angularDragWhenMoving;
 
         // accelerate
-        this.currentSpeed = Mathf.Lerp(this.currentSpeed, this.currentSpeedRequest, Time.fixedDeltaTime * this.accelerationRate);
+        this.currentSpeed = this.isHandbrakeOn
+            ? Mathf.Lerp(this.currentSpeed, 0, Time.fixedDeltaTime * this.accelerationRate * this.handbrakeWeight)
+            : Mathf.Lerp(this.currentSpeed, this.currentSpeedRequest, Time.fixedDeltaTime * this.accelerationRate);
+
         this.currentVelocity = this.currentSpeed * this.transform.forward;
         this.carRigidBody.AddForce(this.currentVelocity, ForceMode.Acceleration);
     }
@@ -91,6 +104,8 @@ public class PlayerCarController : MonoBehaviour
         float maxSpeed = this.maxSpeedWithoutBoost + boostSpeed;
         accelerationRequest += boostAcceleration;
 
-        this.currentSpeedRequest =  maxSpeed * accelerationRequest;
+        this.currentSpeedRequest = maxSpeed * accelerationRequest;
+
+        this.isHandbrakeOn = Mathf.Approximately(1, this.handbrakeAction.ReadValue<float>());
     }
 }
