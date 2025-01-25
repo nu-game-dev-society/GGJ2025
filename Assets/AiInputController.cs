@@ -18,13 +18,15 @@ public class AiInputController : InputController
     Vector3 pos;
     Vector3 target;
     Vector3 dir;
-    public Vector3 fwdCross;
+    public Vector3 crossProduct;
 
-    public bool backwards;
+    public float pitchAngle;
+
     void Update()
     {
         pos = transform.position;
         target = splineContainer.EvaluatePosition(t);
+
         if (Vector3.Distance(pos, target) < acceptanceV)
         {
             t += tStep;
@@ -35,38 +37,31 @@ public class AiInputController : InputController
 
         currentSteerRequest = Vector3.zero;
 
-        fwdCross = Vector3.Cross(transform.forward, dir);
-        Vector3 rightCross = Vector3.Cross(transform.right, dir);
-        Vector3 upCross = Vector3.Cross(transform.up, dir);
+        //yaw
+        crossProduct = Vector3.Cross(dir, transform.forward);
+        float angle = Vector3.Angle(dir, transform.forward);
 
-        if (fwdCross.x > 0.0f && rightCross.x < 0.0f)
+        if (crossProduct.y > 0)
         {
-            //BL
-            fwdCross.x = 1.0f;
+            currentSteerRequest.y = -angle; 
         }
-        else if (fwdCross.x < 0.0f && rightCross.x > 0.0f)
+        else
         {
-            //BR flip
-            fwdCross.x = -1.0f;
+            currentSteerRequest.y = angle;  
         }
+        // Pitch (Vertical Rotation)
+        float targetHeight = target.y - pos.y; // Get vertical difference between target and turret
+        float targetDistance = new Vector3(dir.x, 0, dir.z).magnitude; // Horizontal distance between turret and target
+        pitchAngle = Mathf.Atan2(targetHeight, targetDistance) * Mathf.Rad2Deg; // Calculate pitch angle in degrees
 
-        if (fwdCross.y > 0.0f && upCross.y < 0.0f)
-        {
-            fwdCross.y = 1.0f;
-        }
-        else if (fwdCross.y < 0.0f && upCross.y > 0.0f)
-        {
-            //BR flip
-            fwdCross.y = -1.0f;
-        }
-        currentSteerRequest.y = fwdCross.y;
-        currentSteerRequest.x = fwdCross.x;
+        currentSteerRequest.x = -pitchAngle;
+
 
         currentSteerRequest.x = Mathf.Clamp(currentSteerRequest.x, -1.0f, 1.0f);//pitch
         currentSteerRequest.y = Mathf.Clamp(currentSteerRequest.y, -1.0f, 1.0f);//yaw
 
-        accelerationRequest = 1.0f - fwdCross.magnitude;
 
+        accelerationRequest = 1.0f;
     }
     private void OnDrawGizmos()
     {
