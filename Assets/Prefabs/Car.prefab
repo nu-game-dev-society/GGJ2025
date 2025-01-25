@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d36843c3f06a3b4e9c2e460b7545942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brakeLightsMaterial: {fileID: 2100000, guid: 6332ca2912601452ebabcc23f1ae4932, type: 2}
   carRigidBody: {fileID: 8657131205745452475}
   angularDragWhenIdle: 5
   maxSpeedWithoutBoost: 20

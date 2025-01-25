@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerCarController : MonoBehaviour
 {
+    [Header("Aesthetics")]
+    [SerializeField]
+    private Material brakeLightsMaterial;
+
     [Header("Physics")]
     [SerializeField]
     private Rigidbody carRigidBody;
@@ -65,9 +69,6 @@ public class PlayerCarController : MonoBehaviour
     void Update()
     {
         this.ProcessInputs();
-        //this.currentSteer = Vector3.Lerp(this.currentSteer, this.currentSteerRequest, Time.deltaTime * 10f);
-
-        //this.transform.Rotate(this.currentSteer);
     }
 
     private void FixedUpdate()
@@ -100,7 +101,18 @@ public class PlayerCarController : MonoBehaviour
         );
 
         // accelerate
-        float accelerationRequest = this.accelerateAction.ReadValue<float>() - this.decelerateAction.ReadValue<float>();
+        float accelerationInput = this.accelerateAction.ReadValue<float>();
+        float decelerationInput = this.decelerateAction.ReadValue<float>();
+        if (Mathf.Approximately(0, decelerationInput))
+        {
+            this.brakeLightsMaterial.SetInt("_Emissive", 0);
+        }
+        else
+        {
+            this.brakeLightsMaterial.SetInt("_Emissive", 1);
+        }
+
+        float accelerationRequest = accelerationInput - decelerationInput;
 
         float boostInput = this.boostAction.ReadValue<float>();
         float boostSpeed = boostInput * this.boostSpeedModifier;
