@@ -7,6 +7,9 @@ public class PlayerCarController : MonoBehaviour
     [SerializeField]
     private Material brakeLightsMaterial;
 
+    [SerializeField]
+    private Animator[] propellorAnimators;
+
     [Header("Physics")]
     [SerializeField]
     private Rigidbody carRigidBody;
@@ -122,6 +125,11 @@ public class PlayerCarController : MonoBehaviour
         accelerationRequest += boostAcceleration;
 
         this.currentSpeedRequest = maxSpeed * accelerationRequest;
+
+        foreach (Animator propellorAnimator in this.propellorAnimators)
+        {
+            propellorAnimator.SetFloat("Speed", this.currentSpeedRequest * Time.deltaTime * 10);
+        }
 
         this.isHandbrakeOn = Mathf.Approximately(1, this.handbrakeAction.ReadValue<float>());
     }

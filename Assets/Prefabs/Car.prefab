@@ -81,6 +81,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brakeLightsMaterial: {fileID: 2100000, guid: 6332ca2912601452ebabcc23f1ae4932, type: 2}
+  propellorAnimators:
+  - {fileID: 7405515009832574237}
+  - {fileID: 3679681142586691459}
+  - {fileID: 5274128763766535733}
   carRigidBody: {fileID: 8657131205745452475}
   angularDragWhenIdle: 5
   maxSpeedWithoutBoost: 20
@@ -342,6 +346,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+--- !u!95 &3679681142586691459 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6027182495707411422, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_PrefabInstance: {fileID: 6968194571692080221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5274128763766535733 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2991929614822771304, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_PrefabInstance: {fileID: 6968194571692080221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7405515009832574237 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 464342045837107520, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_PrefabInstance: {fileID: 6968194571692080221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8957952488002853012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2082081778515731657, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
