@@ -82,7 +82,6 @@ public class CarController : MonoBehaviour
         this.brakeLightsMaterial.SetInt("_Emissive", Mathf.Approximately(0, inputs.decelerationInput) ? 0 : 1);
 
         float boostSpeed = inputs.boostInput * this.boostSpeedModifier;
-        float boostAcceleration = inputs.boostInput * this.boostAccelerationModifier;
 
         float maxSpeed = this.maxSpeedWithoutBoost + boostSpeed;
 
