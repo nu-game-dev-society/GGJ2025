@@ -41,6 +41,8 @@ public class PlayerCarController : MonoBehaviour
     private float currentSpeed = 0;
     private Vector3 currentVelocity;
 
+    private Vector3 currentSteer;
+
     private InputAction steerAction;
     private InputAction accelerateAction;
     private InputAction decelerateAction;
@@ -62,7 +64,10 @@ public class PlayerCarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.ProcessInputs();        
+        this.ProcessInputs();
+        //this.currentSteer = Vector3.Lerp(this.currentSteer, this.currentSteerRequest, Time.deltaTime * 10f);
+
+        //this.transform.Rotate(this.currentSteer);
     }
 
     private void FixedUpdate()
