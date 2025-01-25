@@ -228,40 +228,40 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1623234739849930238}
-  - {fileID: 4926596806613069157}
-  - {fileID: 8284319925853602}
-  - {fileID: 5172623674762544136}
-  - {fileID: 465645541862246660}
-  - {fileID: 5187458912606935060}
-  - {fileID: 5145080082762457808}
-  - {fileID: 418843429840155829}
-  - {fileID: 6036302929308927040}
   - {fileID: 6612469612556892254}
-  - {fileID: 2681324246379941835}
-  - {fileID: 1033323589055210881}
-  - {fileID: 577536154923324615}
-  - {fileID: 5499684539477417756}
-  - {fileID: 8899177161794726312}
-  - {fileID: 2138049225188775534}
-  - {fileID: 7837130547730630373}
-  - {fileID: 4933042178572566326}
-  - {fileID: 4216290074422125353}
   - {fileID: 4390429059314357143}
+  - {fileID: 4135451301861553902}
+  - {fileID: 2681324246379941835}
+  - {fileID: 4773439946386894294}
+  - {fileID: 1033323589055210881}
+  - {fileID: 85058552610921589}
+  - {fileID: 577536154923324615}
+  - {fileID: 5187458912606935060}
+  - {fileID: 6036302929308927040}
   - {fileID: 1671172246992152109}
   - {fileID: 4391113609415085943}
-  - {fileID: 1470662505708769834}
-  - {fileID: 8088448850021859101}
-  - {fileID: 4087240686888403781}
-  - {fileID: 7601938939816805520}
-  - {fileID: 2459732238652702943}
+  - {fileID: 4933042178572566326}
+  - {fileID: 4216290074422125353}
   - {fileID: 4705997248588126056}
   - {fileID: 6383195184319097539}
   - {fileID: 8006481933075914748}
   - {fileID: 1722509606121057492}
-  - {fileID: 4773439946386894294}
-  - {fileID: 85058552610921589}
-  - {fileID: 4135451301861553902}
+  - {fileID: 5145080082762457808}
+  - {fileID: 418843429840155829}
+  - {fileID: 5499684539477417756}
+  - {fileID: 2459732238652702943}
+  - {fileID: 8899177161794726312}
+  - {fileID: 8284319925853602}
+  - {fileID: 2138049225188775534}
+  - {fileID: 5172623674762544136}
+  - {fileID: 465645541862246660}
+  - {fileID: 4087240686888403781}
+  - {fileID: 7601938939816805520}
+  - {fileID: 7837130547730630373}
   - {fileID: 1173391264705839814}
+  - {fileID: 8088448850021859101}
+  - {fileID: 1470662505708769834}
+  - {fileID: 4926596806613069157}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2720969600546386482
@@ -637,6 +637,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 8484971860283314281}
     m_Modifications:
     - target: {fileID: 6205085460504793944, guid: d0f3a0cceedb641dcbeb65e043b58387, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205085460504793944, guid: d0f3a0cceedb641dcbeb65e043b58387, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205085460504793944, guid: d0f3a0cceedb641dcbeb65e043b58387, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205085460504793944, guid: d0f3a0cceedb641dcbeb65e043b58387, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0062401295
       objectReference: {fileID: 0}
@@ -646,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205085460504793944, guid: d0f3a0cceedb641dcbeb65e043b58387, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.38
+      value: -0.38000005
       objectReference: {fileID: 0}
     - target: {fileID: 6205085460504793944, guid: d0f3a0cceedb641dcbeb65e043b58387, type: 3}
       propertyPath: m_LocalRotation.w
