@@ -22,6 +22,18 @@ public class DriverNames
         "Ayrton Sea-na",
         "Lando Norwhal",
         "Kimi AnTern-elli",
+        "Fernando A-lobster",
+        "Pierre Bass-ly",
+        "Oscar Pias-squid",
+        "Kevin Mag-kraken",
+        "Nicholas La-reef-i",
+        "Pastor Mal-do-nautical",
+        "Timo Dock",
+        "Esteban Ocean",
+        "Liam Lobster",
+        "Isaac Haddock-jar",
+        "Nico Hull-kenberg",
+        "Zhou Guan Yacht",
     };
     public static string GetRandom()
     {
