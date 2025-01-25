@@ -9,28 +9,24 @@ public class FishAnimator : MonoBehaviour
 
     private Vector3 StartPos;
     public Vector3 Range;
-    public float Magnitude = 0.1f;
+    public Vector3 Magnitude;
 
-    private Vector3 prevVel;
+
     void Start()
     {
         StartPos = transform.localPosition;
-
-        prevVel = PlayerController.transform.InverseTransformDirection(PlayerController.velocity);
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 localVelThisFrame = PlayerController.transform.InverseTransformDirection(PlayerController.velocity);
 
-        Vector3 velocityChange = prevVel - localVelThisFrame;
-        prevVel = localVelThisFrame;
-
         Vector3 clamped = new Vector3(
-            Mathf.Clamp(velocityChange.x, -Range.x, Range.x),
-            Mathf.Clamp(velocityChange.y, -Range.y, Range.y),
-            Mathf.Clamp(velocityChange.z, -Range.z, Range.z));
-        transform.localPosition = Magnitude * clamped;
+            Mathf.Sign(localVelThisFrame.x) * Mathf.Lerp(0, Range.x, (Mathf.Abs(localVelThisFrame.x) / 20f)),
+             Mathf.Sign(localVelThisFrame.y) * Mathf.Lerp(0, Range.y, (Mathf.Abs(localVelThisFrame.y) / 20f)),
+             Mathf.Sign(localVelThisFrame.z) * Mathf.Lerp(0, Range.z, (Mathf.Abs(localVelThisFrame.z) / 20f)));
+
+        transform.localPosition = StartPos + clamped;
     }
 }
