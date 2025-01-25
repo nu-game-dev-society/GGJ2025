@@ -87,6 +87,7 @@ MonoBehaviour:
   - {fileID: 7405515009832574237}
   - {fileID: 3679681142586691459}
   - {fileID: 5274128763766535733}
+  propellorArms: []
   exhaustParticleSystem: {fileID: 8817098380986658090}
   exhaustParticleSystemEmissionRateOverTimeBoostMultiplier: 0
   carRigidBody: {fileID: 8657131205745452475}
@@ -166,7 +167,7 @@ MonoBehaviour:
   splineContainer: {fileID: 0}
   t: 0.025
   tStep: 0.025
-  acceptanceV: 15
+  acceptanceV: 10
   body: {fileID: 8657131205745452475}
   crossProduct: {x: 0, y: 0, z: 0}
   pitchAngle: 0

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -16,6 +13,7 @@ public class AiInputController : InputController
 
     void Start()
     {
+        currentSteerRequest = Vector3.zero;
     }
     Vector3 pos;
     Vector3 target;
@@ -57,8 +55,6 @@ public class AiInputController : InputController
 
 
         accelerationRequest = 1f;
-
-        //Debug.Log(currentSteerRequest);
     }
 
     private void OnDrawGizmos()
