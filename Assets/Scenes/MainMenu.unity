@@ -676,6 +676,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 298571287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &505644820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4725001790925517281, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+  m_PrefabInstance: {fileID: 803281482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &803281482
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1205506360}
+    m_Modifications:
+    - target: {fileID: 2389834023730330088, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784419771803931531, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784419771803931531, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784419771803931531, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725001790925517281, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+      propertyPath: m_Name
+      value: SettingsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617892035290480487, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+      propertyPath: m_Text
+      value: Invert pitch controls
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 265185500611996490, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+    - {fileID: 2252578807909091578, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+--- !u!4 &803281483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3784419771803931531, guid: 58f5c2fe77bdb164c89bfdffa41d56f9, type: 3}
+  m_PrefabInstance: {fileID: 803281482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &803935740
 GameObject:
   m_ObjectHideFlags: 3
@@ -968,6 +1017,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 827533846}
+  - {fileID: 803281483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1027,12 +1077,25 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 
       objectReference: {fileID: 102900000, guid: b43eba197bbd0b04cbc8608beae4e0e3, type: 3}
+    - target: {fileID: 1869008505836760819, guid: a9fce7247250ed143b8bd75465110614, type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 505644820}
+    - target: {fileID: 2701664984357178437, guid: a9fce7247250ed143b8bd75465110614, type: 3}
+      propertyPath: m_Name
+      value: Invert Pitch toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171125660682276115, guid: a9fce7247250ed143b8bd75465110614, type: 3}
+      propertyPath: m_Name
+      value: Invert
+      objectReference: {fileID: 0}
     - target: {fileID: 7287993832485289925, guid: a9fce7247250ed143b8bd75465110614, type: 3}
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3171125660682276115, guid: a9fce7247250ed143b8bd75465110614, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9fce7247250ed143b8bd75465110614, type: 3}

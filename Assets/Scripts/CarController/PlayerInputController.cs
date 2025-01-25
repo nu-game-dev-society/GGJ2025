@@ -3,12 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : InputController
 {
-
-    [Header("Steering")]
-    [SerializeField]
-    private bool isPitchControlInverted = false;
-
-
     private InputAction steerAction;
     private InputAction accelerateAction;
     private InputAction decelerateAction;
@@ -36,7 +30,7 @@ public class PlayerInputController : InputController
         // steer
         Vector2 steerInput = this.steerAction.ReadValue<Vector2>();
         this.currentSteerRequest = new Vector3(
-            isPitchControlInverted
+            SettingsManager.Instance.IsPlayerPitchInputInverted
                 ? steerInput.y
                 : -steerInput.y,
             steerInput.x,

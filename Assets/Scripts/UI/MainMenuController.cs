@@ -5,19 +5,32 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
+    [Header("Play game")]
     [SerializeField]
     private Button playGameButton;
 
     [SerializeField]
-    private Button quitButton;
+    private Object sceneToLoad;
+
+    [Header("Settings")]
+    [SerializeField]
+    private Button settingsButton;
 
     [SerializeField]
-    private Object sceneToLoad;
+    private GameObject settingsMenu;
+
+    [Header("Quit")]
+    [SerializeField]
+    private Button quitButton;
+
 
     private void Start()
     {
         this.playGameButton.onClick.AddListener(this.PlayGame);
+        this.settingsButton.onClick.AddListener(this.ShowSettingsMenu);
         this.quitButton.onClick.AddListener(this.Quit);
+
+        this.settingsMenu.SetActive(false);
     }
 
     private void PlayGame()
@@ -26,6 +39,12 @@ public class MainMenuController : MonoBehaviour
         {
             SceneManager.LoadScene(sceneToLoad.name);
         }
+    }
+
+    private void ShowSettingsMenu()
+    {
+        this.gameObject.SetActive(false);
+        this.settingsMenu.SetActive(true);
     }
 
     private void Quit()
