@@ -68,8 +68,10 @@ public class CarController : MonoBehaviour
         this.ProcessInputs();
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() 
     {
+        Debug.DrawRay(transform.position, inputs.currentSteerRequest, Color.red);
+
         // steer        
         this.carRigidBody.AddRelativeTorque(Vector3.Scale(inputs.currentSteerRequest, this.steerRate));
         this.carRigidBody.angularDrag = inputs.currentSteerRequest == Vector3.zero
@@ -90,6 +92,7 @@ public class CarController : MonoBehaviour
         this.brakeLightsMaterial.SetInt("_Emissive", Mathf.Approximately(0, inputs.decelerationInput) ? 0 : 1);
 
         float boostSpeed = inputs.boostInput * this.boostSpeedModifier;
+
         var emissionModule = this.exhaustParticleSystem.emission;
         emissionModule.rateOverTime = Mathf.Approximately(0, boostSpeed)
             ? this.exhaustParticleSystemEmissionRateOverTimeWhenIdle
