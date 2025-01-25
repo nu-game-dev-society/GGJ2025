@@ -80,7 +80,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carRigidBody: {fileID: 8657131205745452475}
-  maxSpeedWithoutBoostMph: 10
+  maxSpeedWithoutBoost: 10
+  boostSpeedModifier: 5
+  boostAccelerationModifier: 1.5
   accelerationRate: 10
 --- !u!54 &8657131205745452475
 Rigidbody:
@@ -107,7 +109,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!135 &7516336826925144446
 SphereCollider:
@@ -128,8 +130,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.72
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.85
+  m_Center: {x: 0, y: 0.125, z: 0.2}
 --- !u!1001 &6968194571692080221
 PrefabInstance:
   m_ObjectHideFlags: 0
