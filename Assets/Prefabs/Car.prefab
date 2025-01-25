@@ -161,7 +161,6 @@ MonoBehaviour:
   boostInput: 0
   accelerationRequest: 0
   isHandbrakeOn: 0
-  isPitchControlInverted: 0
 --- !u!1 &9113023654478407608
 GameObject:
   m_ObjectHideFlags: 0
