@@ -21,15 +21,13 @@ public class TimerPickup : MonoBehaviour
         
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
         if (!Renderer.enabled) return;
 
         Renderer.enabled = false;
 
-        // TODO Add time
-
-        GameTimer.Instance.Timer += IncreaseAmount;
+        GameTimer.Instance.Timer += IncreaseAmount * 100;
 
         StartCoroutine(ReEnable());
     }
