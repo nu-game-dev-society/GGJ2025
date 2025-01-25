@@ -18,6 +18,9 @@ public class PlayerCarController : MonoBehaviour
     [SerializeField]
     private float accelerationRate = 10;
 
+    [SerializeField]
+    private bool isPitchControlInverted = true;
+
     private Vector3 currentSteerRequest;
     private float currentSpeedRequest;
 
@@ -58,7 +61,9 @@ public class PlayerCarController : MonoBehaviour
     {
         // steer
         this.currentSteerRequest = new Vector3(
-            this.steerAction.ReadValue<Vector2>().y,
+            isPitchControlInverted
+                ? this.steerAction.ReadValue<Vector2>().y
+                : -this.steerAction.ReadValue<Vector2>().y,
             this.steerAction.ReadValue<Vector2>().x,
             0
         );
