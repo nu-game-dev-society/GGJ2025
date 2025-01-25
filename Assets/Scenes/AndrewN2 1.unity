@@ -1184,10 +1184,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8582412828668641838, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8586639817393523768, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.83
@@ -1231,10 +1227,6 @@ PrefabInstance:
     - target: {fileID: 8592269371237596277, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
       propertyPath: m_Layer
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9104123900774626751, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
-      propertyPath: isPitchControlInverted
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9118166520810096175, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
       propertyPath: m_Layer
