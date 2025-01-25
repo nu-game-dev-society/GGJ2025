@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CarController : MonoBehaviour
 {
@@ -9,6 +8,13 @@ public class CarController : MonoBehaviour
 
     [SerializeField]
     private Animator[] propellorAnimators;
+
+    [SerializeField]
+    private ParticleSystem exhaustParticleSystem;
+
+    [SerializeField]
+    private float exhaustParticleSystemEmissionRateOverTimeBoostMultiplier;
+    private float exhaustParticleSystemEmissionRateOverTimeWhenIdle;
 
     [Header("Physics")]
     [SerializeField]
@@ -24,9 +30,6 @@ public class CarController : MonoBehaviour
 
     [SerializeField]
     private float boostSpeedModifier = 1.5f;
-
-    [SerializeField]
-    private float boostAccelerationModifier = 1.5f;
 
     [SerializeField]
     private float accelerationRate = 10;
@@ -45,12 +48,14 @@ public class CarController : MonoBehaviour
     private Vector3 currentVelocity;
 
 
-    [SerializeField] private InputController inputs;
+    [SerializeField]
+    private InputController inputs;
 
     // Start is called before the first frame update
     void Start()
     {
         this.angularDragWhenMoving = this.carRigidBody.angularDrag;
+        this.exhaustParticleSystemEmissionRateOverTimeWhenIdle = this.exhaustParticleSystem.emission.rateOverTime.constant;
     }
 
     // Update is called once per frame
@@ -78,11 +83,14 @@ public class CarController : MonoBehaviour
 
     private void ProcessInputs()
     {
-
         this.brakeLightsMaterial.SetInt("_Emissive", Mathf.Approximately(0, inputs.decelerationInput) ? 0 : 1);
 
         float boostSpeed = inputs.boostInput * this.boostSpeedModifier;
-        float boostAcceleration = inputs.boostInput * this.boostAccelerationModifier;
+        var emissionModule = this.exhaustParticleSystem.emission;
+        emissionModule.rateOverTime = Mathf.Approximately(0, boostSpeed)
+            ? this.exhaustParticleSystemEmissionRateOverTimeWhenIdle
+            : this.exhaustParticleSystemEmissionRateOverTimeWhenIdle * this.exhaustParticleSystemEmissionRateOverTimeBoostMultiplier;
+        Debug.Log(emissionModule.rateOverTime);
 
         float maxSpeed = this.maxSpeedWithoutBoost + boostSpeed;
 
