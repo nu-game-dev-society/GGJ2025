@@ -19,6 +19,9 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private GameObject settingsMenu;
 
+    [SerializeField]
+    private Button exitSettingsButton;
+
     [Header("Quit")]
     [SerializeField]
     private Button quitButton;
@@ -29,7 +32,7 @@ public class MainMenuController : MonoBehaviour
         this.playGameButton.onClick.AddListener(this.PlayGame);
         this.settingsButton.onClick.AddListener(this.ShowSettingsMenu);
         this.quitButton.onClick.AddListener(this.Quit);
-
+        this.exitSettingsButton.onClick.AddListener(this.ExitSettings);
         this.settingsMenu.SetActive(false);
     }
 
@@ -45,6 +48,12 @@ public class MainMenuController : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         this.settingsMenu.SetActive(true);
+    }
+
+    private void ExitSettings()
+    {
+        this.gameObject.SetActive(true);
+        this.settingsMenu.SetActive(false);
     }
 
     private void Quit()

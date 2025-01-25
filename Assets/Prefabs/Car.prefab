@@ -563,6 +563,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2709732452800085774, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709732452800085774, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709732452800085774, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709732452800085774, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709732452800085774, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 0.67559814
+      objectReference: {fileID: 0}
     - target: {fileID: 2900917140781198481, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
       propertyPath: m_Layer
       value: 3

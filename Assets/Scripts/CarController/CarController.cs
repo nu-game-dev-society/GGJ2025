@@ -62,7 +62,7 @@ public class CarController : MonoBehaviour
     void Start()
     {
         this.angularDragWhenMoving = this.carRigidBody.angularDrag;
-        this.exhaustParticleSystemEmissionRateOverTimeWhenIdle = this.exhaustParticleSystem.emission.rateOverTime.constant;
+       // this.exhaustParticleSystemEmissionRateOverTimeWhenIdle = this.exhaustParticleSystem.emission.rateOverTime.constant;
     }
 
     // Update is called once per frame
@@ -98,11 +98,11 @@ public class CarController : MonoBehaviour
 
         float boostSpeed = inputs.boostInput * this.boostSpeedModifier;
 
-        var emissionModule = this.exhaustParticleSystem.emission;
-        emissionModule.rateOverTime = Mathf.Approximately(0, boostSpeed)
-            ? this.exhaustParticleSystemEmissionRateOverTimeWhenIdle
-            : this.exhaustParticleSystemEmissionRateOverTimeWhenIdle * this.exhaustParticleSystemEmissionRateOverTimeBoostMultiplier;
-        Debug.Log(emissionModule.rateOverTime);
+        //var emissionModule = this.exhaustParticleSystem.emission;
+        //emissionModule.rateOverTime = Mathf.Approximately(0, boostSpeed)
+        //    ? this.exhaustParticleSystemEmissionRateOverTimeWhenIdle
+        //    : this.exhaustParticleSystemEmissionRateOverTimeWhenIdle * this.exhaustParticleSystemEmissionRateOverTimeBoostMultiplier;
+        //Debug.Log(emissionModule.rateOverTime);
 
         float maxSpeed = this.maxSpeedWithoutBoost + boostSpeed;
 
