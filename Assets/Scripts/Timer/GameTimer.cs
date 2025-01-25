@@ -33,11 +33,14 @@ public class GameTimer : MonoBehaviour
     [SerializeField] List<Checkpoint> Checkpoints;
     int lastCheckpoint = -1;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
-
         // Setup
         if (!RaceMode) Timer = StartTime * 100;
         UpdateUI();
