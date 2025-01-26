@@ -134,6 +134,26 @@ PrefabInstance:
       propertyPath: timerDisplay
       value: 
       objectReference: {fileID: 579413648}
+    - target: {fileID: 511753423459516046, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
+      propertyPath: inputControllers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 511753423459516046, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
+      propertyPath: inputControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1877948943}
+    - target: {fileID: 511753423459516046, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
+      propertyPath: inputControllers.Array.data[1]
+      value: 
+      objectReference: {fileID: 429884044454098315}
+    - target: {fileID: 511753423459516046, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
+      propertyPath: inputControllers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1319205314}
+    - target: {fileID: 511753423459516046, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
+      propertyPath: inputControllers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1128988085}
     - target: {fileID: 6114526590762877512, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -773,11 +793,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: AiCar (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: turnSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: acceptanceV
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: splineContainer
+      value: 
+      objectReference: {fileID: 984879505}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+--- !u!114 &1128988085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+  m_PrefabInstance: {fileID: 1128988084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26e778643bb8a4ebe769b308934829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1223711710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8693892301723729788, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
@@ -845,11 +888,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AiCar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: splineContainer
+      value: 
+      objectReference: {fileID: 984879505}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+--- !u!114 &1319205314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+  m_PrefabInstance: {fileID: 1319205313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26e778643bb8a4ebe769b308934829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1427361922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1285,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1528435789883530077, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: splineContainer
+      value: 
+      objectReference: {fileID: 984879505}
     - target: {fileID: 2058840597817892450, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
       propertyPath: LastLapComplete.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -1321,6 +1383,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8586639817393523768, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
   m_PrefabInstance: {fileID: 1877948941}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1877948943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8780359446016932330, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+  m_PrefabInstance: {fileID: 1877948941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad675a7e037ce68478baaa941b101213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1877948944 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2058840597817892450, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
@@ -1456,11 +1529,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: AiCar
       objectReference: {fileID: 0}
+    - target: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: tStep
+      value: 0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: acceptanceV
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: splineContainer
+      value: 
+      objectReference: {fileID: 984879505}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+--- !u!114 &429884044454098315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8467356962051499776, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+  m_PrefabInstance: {fileID: 429884044454098314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26e778643bb8a4ebe769b308934829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -13,10 +13,12 @@ public class StartGrid : MonoBehaviour
     [SerializeField] AudioSource musicSource; 
     [SerializeField] TimerDisplay timerDisplay;
 
-    [SerializeField] GameObject blackandwhite; 
+    [SerializeField] GameObject blackandwhite;
+
 
     List<SkinnedMeshRenderer> lightRenderer = new List<SkinnedMeshRenderer>();
 
+    [SerializeField]
     InputController[] inputControllers;
 
     int curLight;
@@ -26,7 +28,7 @@ public class StartGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputControllers = FindObjectsOfType<InputController>();
+        inputControllers = inputControllers ?? FindObjectsOfType<InputController>();
 
         // Disable all input
         foreach (var controller in inputControllers)
