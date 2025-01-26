@@ -7,8 +7,6 @@ using UnityEngine.Events;
 
 public class GameTimer : MonoBehaviour
 {
-    [SerializeField] List<Checkpoint> Checkpoints;
-
     public int LastCheckpoint { get; private set; } = -1;
     public int CurrentLap { get; private set; } = 0;
     public UnityEvent DoLapEvent;
@@ -27,12 +25,12 @@ public class GameTimer : MonoBehaviour
 
     internal void DoCheckpoint(Checkpoint checkpoint)
     {
-        int i = Checkpoints.IndexOf(checkpoint);
+        int i = CheckpointManager.Instance.Checkpoints.IndexOf(checkpoint);
 
         Debug.Log(i);
         Debug.Log(checkpoint);
 
-        if (i != LastCheckpoint + 1 && LastCheckpoint != Checkpoints.Count - 1) return;
+        if (i != LastCheckpoint + 1 && LastCheckpoint != CheckpointManager.Instance.Checkpoints.Count - 1) return;
 
         LastCheckpoint = i;
 
