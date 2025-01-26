@@ -21,9 +21,12 @@ public class Position : MonoBehaviour
 
     [SerializeField] TMP_Text[] positions;
 
+    public List<Tuple<string, int>> FinishedResults;
+
     // Start is called before the first frame update
     void Awake()
     {
+        FinishedResults = new List<Tuple<string, int>>();
         // Get car controllers
         cars = FindObjectsOfType<GameTimer>().ToArray();
 
@@ -47,7 +50,7 @@ public class Position : MonoBehaviour
             carPct.Add(new Tuple<Transform, float>(car.transform, splinePct + (car.CurrentLap * 100)));
         }
 
-        var r = carPct.OrderBy(e => e.Item2).Reverse().Select(x => x.Item1).ToArray();
+        var r = carPct.OrderByDescending(e => e.Item2).Select(x => x.Item1).ToArray();
         DebugNames = string.Join(", ", r.Select(x => x.name));
         for (int pos = 0; pos < r.Length; pos++)
         {
@@ -72,5 +75,15 @@ public class Position : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         StartCoroutine(CheckPosition());
+    }
+
+    public int GetFinishedPosition(Transform t)
+    {
+        var r = Array.IndexOf(carPct.OrderByDescending(e => e.Item2).Select(x => x.Item1).ToArray(), t) + 1;
+        Debug.Log($"{t.name} {r}");
+        FinishedResults.Add(new(t.name, r));
+
+        return r;
+
     }
 }
