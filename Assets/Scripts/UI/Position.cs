@@ -6,6 +6,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UI;
 
 public class Position : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class Position : MonoBehaviour
     }
     public string DebugNames;
     public List<Tuple<Transform, float>> carPct = new List<Tuple<Transform, float>>();
+    public Color HighlightColor;
+    public Color BaseColor;
     IEnumerator CheckPosition()
     {
 
@@ -57,6 +60,11 @@ public class Position : MonoBehaviour
             if (r[pos].Equals(player))
             {
                 playerPos = pos + 1;
+                positions[pos].transform.parent.GetComponent<Image>().color = HighlightColor;
+            }
+            else
+            {
+                positions[pos].transform.parent.GetComponent<Image>().color = BaseColor;
             }
         }
 
