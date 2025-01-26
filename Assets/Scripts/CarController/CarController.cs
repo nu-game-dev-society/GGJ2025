@@ -56,7 +56,9 @@ public class CarController : MonoBehaviour
 
 
     [Header("AUDIO")]
-    public AudioSource propellorAudioSource; 
+    public AudioSource propellorAudioSource;
+    public AudioSource boinkSource;
+    public AudioSource boostSource; 
 
     // Start is called before the first frame update
     void Start()
@@ -128,6 +130,7 @@ public class CarController : MonoBehaviour
         if (permittedBoostAmount > 0f && !boostParticleSystem.isPlaying)
         {
             boostParticleSystem.Play();
+            boostSource.Play();
         }
         else if (permittedBoostAmount <= 0f && boostParticleSystem.isPlaying)
         {
@@ -155,6 +158,19 @@ public class CarController : MonoBehaviour
             // Use Mathf.LerpAngle to ensure shortest path interpolation for angles
             float y = Mathf.LerpAngle(propellorArm.localEulerAngles.y, newYRot, 2f * Time.deltaTime);
             propellorArm.localEulerAngles = new Vector3(0f, y, 0f);
+        }
+    }
+
+    float lastBoink; 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (Time.time > lastBoink + 0.5f)
+        {
+            boinkSource.pitch = Random.Range(0.9f, 1.1f);
+            boinkSource.Play();
+
+            lastBoink = Time.time; 
         }
     }
 
