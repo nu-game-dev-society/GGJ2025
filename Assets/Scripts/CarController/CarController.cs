@@ -94,6 +94,21 @@ public class CarController : MonoBehaviour
         this.carRigidBody.AddForce(this.currentVelocity, ForceMode.Acceleration);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!(other.GetComponent<IBoostProvider>() is IBoostProvider boostProvider))
+        {
+            return;
+        }
+        if (Mathf.Approximately(this.remainingBoostTimeInSeconds, this.maxBoostTimeInSeconds))
+        {
+            return;
+        }
+
+        this.remainingBoostTimeInSeconds = Mathf.Clamp(this.remainingBoostTimeInSeconds + boostProvider.BoostProvided, 0, this.maxBoostTimeInSeconds);
+        other.gameObject.SetActive(false);
+    }
+
     private void ProcessInputs()
     {
         this.brakeLightsMaterial.SetInt("_Emissive", Mathf.Approximately(0, inputs.decelerationInput) ? 0 : 1);
@@ -106,7 +121,6 @@ public class CarController : MonoBehaviour
             permittedBoostAmount = inputs.boostInput * this.boostSpeedModifier;
             remainingBoostTimeInSeconds -= Time.deltaTime;
         }
-
         this.currentSpeedRequest = (this.maxSpeedWithoutBoost + permittedBoostAmount) * (inputs.accelerationRequest + (isBoostPermitted ? inputs.boostInput : 0));
          
         foreach (Animator propellorAnimator in this.propellorAnimators)
