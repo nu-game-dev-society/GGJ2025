@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -37,7 +38,7 @@ public class MenuNavigationController : MonoBehaviour
     private void OnEnable()
     {
         this.indexOfCurrentlyFocusedUIElement = 0;
-        this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement)?.Select();
+        this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement)?.Select();        
     }
 
     private void OnDisable()
@@ -53,6 +54,7 @@ public class MenuNavigationController : MonoBehaviour
         }
 
         Vector2 navigateInput = callbackContext.ReadValue<Vector2>();
+        
         if (navigateInput.y > 0.5f)
         {
             // navigate upwards
