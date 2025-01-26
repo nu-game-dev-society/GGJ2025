@@ -1313,6 +1313,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1409296307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409296308}
+  m_Layer: 5
+  m_Name: LiveTele
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1409296308
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409296307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1485894697}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1459944992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1402,9 @@ MonoBehaviour:
   player: {fileID: 2140874757}
   currentPos: {fileID: 1917164991}
   totalPos: {fileID: 826183896}
+  playerPos: 0
+  positions: []
+  DebugNames: 
 --- !u!1 &1485894693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1502,7 @@ RectTransform:
   - {fileID: 1842871059}
   - {fileID: 1459944993}
   - {fileID: 58469620}
+  - {fileID: 1409296308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2225,14 +2264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a418f7ffc03fab41aa86098fb134a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checkpoints:
-  - {fileID: 116126416}
-  - {fileID: 109968881}
-  - {fileID: 757501494}
-  - {fileID: 526394403}
-  - {fileID: 930764796}
-  - {fileID: 779136539}
-  - {fileID: 1495100726}
   DoLapEvent:
     m_PersistentCalls:
       m_Calls: []
