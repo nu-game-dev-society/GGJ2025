@@ -48,7 +48,7 @@ public class PlayerInputController : InputController
 
         this.boostInput = this.boostAction.ReadValue<float>();
 
-        this.accelerationRequest = boostInput + accelerationInput - decelerationInput;
+        this.accelerationRequest = accelerationInput - decelerationInput;
 
         this.isHandbrakeOn = Mathf.Approximately(1, this.handbrakeAction.ReadValue<float>());
     }

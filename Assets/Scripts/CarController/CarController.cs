@@ -35,11 +35,14 @@ public class CarController : MonoBehaviour
     private float boostSpeedModifier = 1.5f;
 
     [SerializeField]
+    private float maxBoostTimeInSeconds = 1f;
+    private float remainingBoostTimeInSeconds = 1f;
+
+    [SerializeField]
     private float accelerationRate = 10;
 
     [SerializeField]
     private float handbrakeWeight = 5f;
-
 
     [SerializeField]
     private Vector3 steerRate = Vector3.one;
@@ -62,7 +65,6 @@ public class CarController : MonoBehaviour
     void Start()
     {
         this.angularDragWhenMoving = this.carRigidBody.angularDrag;
-       // this.exhaustParticleSystemEmissionRateOverTimeWhenIdle = this.exhaustParticleSystem.emission.rateOverTime.constant;
     }
 
     // Update is called once per frame
@@ -96,17 +98,16 @@ public class CarController : MonoBehaviour
     {
         this.brakeLightsMaterial.SetInt("_Emissive", Mathf.Approximately(0, inputs.decelerationInput) ? 0 : 1);
 
-        float boostSpeed = inputs.boostInput * this.boostSpeedModifier;
+        bool isBoostPermitted = inputs.boostInput > 0.5f && remainingBoostTimeInSeconds > 0f;
+        float permittedBoostAmount = 0f;
+        // if boost is requested & can be permitted
+        if (isBoostPermitted)
+        {
+            permittedBoostAmount = inputs.boostInput * this.boostSpeedModifier;
+            remainingBoostTimeInSeconds -= Time.deltaTime;
+        }
 
-        //var emissionModule = this.exhaustParticleSystem.emission;
-        //emissionModule.rateOverTime = Mathf.Approximately(0, boostSpeed)
-        //    ? this.exhaustParticleSystemEmissionRateOverTimeWhenIdle
-        //    : this.exhaustParticleSystemEmissionRateOverTimeWhenIdle * this.exhaustParticleSystemEmissionRateOverTimeBoostMultiplier;
-        //Debug.Log(emissionModule.rateOverTime);
-
-        float maxSpeed = this.maxSpeedWithoutBoost + boostSpeed;
-
-        this.currentSpeedRequest = maxSpeed * inputs.accelerationRequest;
+        this.currentSpeedRequest = (this.maxSpeedWithoutBoost + permittedBoostAmount) * (inputs.accelerationRequest + (isBoostPermitted ? inputs.boostInput : 0));
          
         foreach (Animator propellorAnimator in this.propellorAnimators)
         {
@@ -117,7 +118,6 @@ public class CarController : MonoBehaviour
             propellorAudioSource.volume = newPropellorSpeed * 1f; 
         }
     }
-
 
     public void UpdatePropellorRotation(float acceleration, float turn)
     {
