@@ -90,12 +90,12 @@ MonoBehaviour:
   - {fileID: 3679681142586691459}
   - {fileID: 5274128763766535733}
   propellorArms: []
-  exhaustParticleSystem: {fileID: 8817098380986658090}
-  exhaustParticleSystemEmissionRateOverTimeBoostMultiplier: 0
+  boostParticleSystem: {fileID: 8000097014255990012}
   carRigidBody: {fileID: 8657131205745452475}
   angularDragWhenIdle: 5
   maxSpeedWithoutBoost: 20
   boostSpeedModifier: 10
+  maxBoostTimeInSeconds: 1
   accelerationRate: 10
   handbrakeWeight: 5
   steerRate: {x: 2, y: 2, z: 2}
@@ -611,9 +611,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 464342045837107520, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
   m_PrefabInstance: {fileID: 6968194571692080221}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &8817098380986658090 stripped
+--- !u!198 &8000097014255990012 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1938975870947643767, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1130981652636813473, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
   m_PrefabInstance: {fileID: 6968194571692080221}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8957952488002853012 stripped

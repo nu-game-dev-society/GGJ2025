@@ -13,11 +13,7 @@ public class CarController : MonoBehaviour
     private Transform[] propellorArms;
 
     [SerializeField]
-    private ParticleSystem exhaustParticleSystem;
-
-    [SerializeField]
-    private float exhaustParticleSystemEmissionRateOverTimeBoostMultiplier;
-    private float exhaustParticleSystemEmissionRateOverTimeWhenIdle;
+    private ParticleSystem boostParticleSystem;
 
     [Header("Physics")]
     [SerializeField]
@@ -122,6 +118,15 @@ public class CarController : MonoBehaviour
             remainingBoostTimeInSeconds -= Time.deltaTime;
         }
         this.currentSpeedRequest = (this.maxSpeedWithoutBoost + permittedBoostAmount) * (inputs.accelerationRequest + (isBoostPermitted ? inputs.boostInput : 0));
+
+        if (permittedBoostAmount > 0f && !boostParticleSystem.isPlaying)
+        {
+            boostParticleSystem.Play();
+        }
+        else if (permittedBoostAmount <= 0f && boostParticleSystem.isPlaying)
+        {
+            boostParticleSystem.Stop();
+        }
          
         foreach (Animator propellorAnimator in this.propellorAnimators)
         {
