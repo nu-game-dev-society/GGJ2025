@@ -12,8 +12,7 @@ public class MenuNavigationController : MonoBehaviour
     [SerializeField]
     private int indexOfCurrentlyFocusedUIElement = -1; //-1 means nothing is focused
 
-    [SerializeField]
-    private float duplicateInputCooldown = 0f;
+    private float duplicateInputCooldown = 0.25f;
     private float currentNavigateCooldown = 0f;
     private float currentSubmitCooldown = 0f;
 
@@ -24,6 +23,19 @@ public class MenuNavigationController : MonoBehaviour
     {
         this.navigateAction = InputSystem.actions.FindAction("Navigate");
         this.submitAction = InputSystem.actions.FindAction("Submit");
+    }
+
+    private void Update()
+    {
+        if (this.currentNavigateCooldown > 0f)
+        {
+            this.currentNavigateCooldown -= Time.deltaTime;
+        }
+
+        if (this.currentSubmitCooldown > 0f)
+        {
+            this.currentSubmitCooldown -= Time.deltaTime;
+        }
     }
 
     private void OnDestroy()
@@ -56,26 +68,25 @@ public class MenuNavigationController : MonoBehaviour
             return;
         }
 
-        Vector2 navigateInput = callbackContext.ReadValue<Vector2>();
+        if (this.currentNavigateCooldown <= 0f)
+        {
+            Vector2 navigateInput = callbackContext.ReadValue<Vector2>();
         
-        if (navigateInput.y > 0.5f)
-        {
-            // navigate upwards
-            --this.indexOfCurrentlyFocusedUIElement;
-            this.currentNavigateCooldown = this.duplicateInputCooldown;
-        }
-        else if (navigateInput.y < -0.5f)
-        {
-            // navigate downwards
-            ++this.indexOfCurrentlyFocusedUIElement;
-            this.currentNavigateCooldown = this.duplicateInputCooldown;
-        }
-        else
-        {
-            return;
+            if (navigateInput.y > 0.5f)
+            {
+                // navigate upwards
+                --this.indexOfCurrentlyFocusedUIElement;
+                this.currentNavigateCooldown = this.duplicateInputCooldown;
+            }
+            else if (navigateInput.y < -0.5f)
+            {
+                // navigate downwards
+                ++this.indexOfCurrentlyFocusedUIElement;
+                this.currentNavigateCooldown = this.duplicateInputCooldown;
+            }
         }
 
-        this.indexOfCurrentlyFocusedUIElement = Mathf.Clamp(this.indexOfCurrentlyFocusedUIElement, 0, this.focusableUIElements.Length - 1);
+        this.indexOfCurrentlyFocusedUIElement = Mathf.Clamp(this.indexOfCurrentlyFocusedUIElement, 0, this.focusableUIElements.Length - 1);            
 
         this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement)?.Select();
     }
@@ -86,6 +97,12 @@ public class MenuNavigationController : MonoBehaviour
         {
             return;
         }
+
+        if (this.currentSubmitCooldown > 0f)
+        {
+            return;
+        }
+
         this.currentSubmitCooldown = this.duplicateInputCooldown;
         switch (this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement))
         {
