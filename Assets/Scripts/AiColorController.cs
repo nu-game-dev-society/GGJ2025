@@ -48,30 +48,3 @@ public class AiColorController : MonoBehaviour
         Car.SetPropertyBlock(carMaterialBlock, 0);
     }
 }
-
-[CreateAssetMenu(fileName = "FishColors", menuName = "ScriptableObjects/FishColors", order = 1)]
-public class FishColorOptions : ScriptableObject
-{
-    public List<ColorPairing> Colors;
-    public ColorPairing GetRandom()
-    {
-        return Colors[Random.Range(0, Colors.Count)];
-    }
-
-}
-[CreateAssetMenu(fileName = "CarColors", menuName = "ScriptableObjects/CarColors", order = 1)]
-public class CarColorOptions : ScriptableObject
-{
-    public List<Color> Colors;
-
-    public Color GetRandom()
-    {
-        return Colors[Random.Range(0, Colors.Count)];
-    }
-}
-[System.Serializable]
-public class ColorPairing
-{
-    public Color PrimaryColor;
-    public Color SecondaryColor;
-}

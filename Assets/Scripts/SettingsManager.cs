@@ -8,10 +8,6 @@ public class SettingsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            throw new System.Exception("How did we get 2 settings managers?");
-        }
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
