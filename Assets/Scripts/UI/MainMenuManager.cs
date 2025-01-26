@@ -46,12 +46,14 @@ public class MainMenuManager : MonoBehaviour
 
     private void ShowSettingsMenu()
     {
+        Debug.Log("ShowSettingsMenu");
         this.gameObject.SetActive(false);
         this.settingsMenu.SetActive(true);
     }
 
     private void ExitSettings()
     {
+        Debug.Log("ExitSettings");
         this.gameObject.SetActive(true);
         this.settingsMenu.SetActive(false);
     }

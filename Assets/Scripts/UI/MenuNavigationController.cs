@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -5,65 +6,95 @@ using UnityEngine.UI;
 public class MenuNavigationController : MonoBehaviour
 {
     [SerializeField]
-    private Button[] focusableUIElements;
+    private Selectable[] focusableUIElements;
 
     [SerializeField]
-    private int indexOfCurrentlyFocusedUIElement;
+    private int indexOfCurrentlyFocusedUIElement = -1; //-1 means nothing is focused
 
     [SerializeField]
-    private float navigateCooldown = 0.5f;
+    private float duplicateInputCooldown = 0f;
     private float currentNavigateCooldown = 0f;
+    private float currentSubmitCooldown = 0f;
 
     private InputAction navigateAction;
     private InputAction submitAction;
 
-    // Start is called before the first frame update
     void Start()
     {
         this.navigateAction = InputSystem.actions.FindAction("Navigate");
         this.submitAction = InputSystem.actions.FindAction("Submit");
+
+        this.navigateAction.performed += OnNavigate;
+        this.submitAction.performed += OnSubmit;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        this.ProcessNavigation();
-        this.ProcessSubmit();
+        this.navigateAction.performed -= OnNavigate;
+        this.submitAction.performed -= OnSubmit;
     }
 
-    private void ProcessNavigation()
+    private void OnEnable()
     {
-        if (currentNavigateCooldown > 0f)
+        this.indexOfCurrentlyFocusedUIElement = 0;
+        this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement)?.Select();
+    }
+
+    private void OnDisable()
+    {
+        this.indexOfCurrentlyFocusedUIElement = -1;
+    }
+
+    private void OnNavigate(InputAction.CallbackContext callbackContext)
+    {
+        if (!this.isActiveAndEnabled)
         {
-            this.currentNavigateCooldown -= Time.deltaTime;
             return;
         }
 
-        Vector2 navigateInput = this.navigateAction.ReadValue<Vector2>();
+        Vector2 navigateInput = callbackContext.ReadValue<Vector2>();
         if (navigateInput.y > 0.5f)
         {
             // navigate upwards
             --this.indexOfCurrentlyFocusedUIElement;
-            this.currentNavigateCooldown = this.navigateCooldown;
+            this.currentNavigateCooldown = this.duplicateInputCooldown;
         }
         else if (navigateInput.y < -0.5f)
         {
             // navigate downwards
             ++this.indexOfCurrentlyFocusedUIElement;
-            this.currentNavigateCooldown = this.navigateCooldown;
+            this.currentNavigateCooldown = this.duplicateInputCooldown;
+        }
+        else
+        {
+            return;
         }
 
         this.indexOfCurrentlyFocusedUIElement = Mathf.Clamp(this.indexOfCurrentlyFocusedUIElement, 0, this.focusableUIElements.Length - 1);
 
-        this.focusableUIElements[this.indexOfCurrentlyFocusedUIElement].Select();
+        this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement)?.Select();
     }
 
-    private void ProcessSubmit()
+    private void OnSubmit(InputAction.CallbackContext callbackContext)
     {
-        float submitInput = this.submitAction.ReadValue<float>();
+        if (!this.isActiveAndEnabled)
+        {
+            return;
+        }
+
+        float submitInput = callbackContext.ReadValue<float>();
         if (submitInput > 0.5f)
         {
-            this.focusableUIElements[this.indexOfCurrentlyFocusedUIElement].onClick.Invoke();
+            this.currentSubmitCooldown = this.duplicateInputCooldown;
+            switch (this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement))
+            {
+                case Button button:
+                    button.onClick.Invoke();
+                    break;
+                case Toggle toggle:
+                    toggle.isOn = !toggle.isOn;
+                    break;
+            }
         }
     }
 }
