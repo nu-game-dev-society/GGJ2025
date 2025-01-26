@@ -42,9 +42,6 @@ public class Position : MonoBehaviour
         {
             SplineUtility.GetNearestPoint(spline.Spline, car.transform.position, out float3 nearest, out float splinePct);
 
-            // TODO Count laps into this calc, add 1 for each lap
-            // Else people at the end of the map on previous lap are classed as infront
-
             carPct.Add(car.transform, splinePct + (car.CurrentLap * 100));
         }
 

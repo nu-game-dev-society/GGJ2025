@@ -691,8 +691,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -34, y: 23}
-  m_SizeDelta: {x: 72, y: 72}
+  m_AnchoredPosition: {x: 0, y: 23}
+  m_SizeDelta: {x: 80, y: 72}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &826183896
 MonoBehaviour:
@@ -714,9 +714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '/5
-
-'
+  m_text: /5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1ad0565c6f9744478e0020a8488a03e, type: 2}
   m_sharedMaterial: {fileID: 1794144705978633032, guid: b1ad0565c6f9744478e0020a8488a03e, type: 2}
@@ -804,6 +802,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11862551a56d76846a8f83fe9f5a3ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1090375497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2720969600546386482, guid: 3347e4ac7a3972a47805ad42f3a338c8, type: 3}
+  m_PrefabInstance: {fileID: 1995308994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1090375499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090375497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a941814aab49f44698ccf1776544cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 116126416}
+  - {fileID: 109968881}
+  - {fileID: 757501494}
+  - {fileID: 526394403}
+  - {fileID: 930764796}
+  - {fileID: 779136539}
+  - {fileID: 1495100726}
 --- !u!1 &1111449936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1110,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1459944993}
-  - component: {fileID: 1459944995}
   - component: {fileID: 1459944994}
   m_Layer: 5
   m_Name: Position
@@ -1115,7 +1137,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -20, y: 20}
-  m_SizeDelta: {x: 148.8, y: 158.29999}
+  m_SizeDelta: {x: 141.5, y: 158.29999}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1459944994
 MonoBehaviour:
@@ -1133,22 +1155,6 @@ MonoBehaviour:
   player: {fileID: 2140874757}
   currentPos: {fileID: 1917164991}
   totalPos: {fileID: 826183896}
---- !u!114 &1459944995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459944992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5703bd659c734d241b874ab56d1231d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spline: {fileID: 0}
-  player: {fileID: 0}
-  currentPos: {fileID: 0}
-  totalPos: {fileID: 0}
 --- !u!1 &1485894693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,14 +1426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a418f7ffc03fab41aa86098fb134a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checkpoints:
-  - {fileID: 116126416}
-  - {fileID: 109968881}
-  - {fileID: 757501494}
-  - {fileID: 526394403}
-  - {fileID: 930764796}
-  - {fileID: 779136539}
-  - {fileID: 1495100726}
   DoLapEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1466,8 +1464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 60, y: -1171}
-  m_SizeDelta: {x: 500, y: 120}
+  m_AnchoredPosition: {x: 60, y: -60}
+  m_SizeDelta: {x: 500, y: 230}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1842871060
 MonoBehaviour:
@@ -1623,7 +1621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -22, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 85, y: 144}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1917164991
@@ -1740,14 +1738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a418f7ffc03fab41aa86098fb134a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checkpoints:
-  - {fileID: 116126416}
-  - {fileID: 109968881}
-  - {fileID: 757501494}
-  - {fileID: 526394403}
-  - {fileID: 930764796}
-  - {fileID: 779136539}
-  - {fileID: 1495100726}
   DoLapEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1806,7 +1796,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2720969600546386482, guid: 3347e4ac7a3972a47805ad42f3a338c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1090375499}
   m_SourcePrefab: {fileID: 100100000, guid: 3347e4ac7a3972a47805ad42f3a338c8, type: 3}
 --- !u!1001 &1999693638
 PrefabInstance:
@@ -2009,6 +2002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad675a7e037ce68478baaa941b101213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerName>k__BackingField: 
   currentSteerRequest: {x: 0, y: 0, z: 0}
   decelerationInput: 0
   boostInput: 0
@@ -2026,14 +2020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a418f7ffc03fab41aa86098fb134a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checkpoints:
-  - {fileID: 116126416}
-  - {fileID: 109968881}
-  - {fileID: 757501494}
-  - {fileID: 526394403}
-  - {fileID: 930764796}
-  - {fileID: 779136539}
-  - {fileID: 1495100726}
   DoLapEvent:
     m_PersistentCalls:
       m_Calls: []
