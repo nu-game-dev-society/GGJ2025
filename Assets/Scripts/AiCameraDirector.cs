@@ -2,16 +2,27 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class AiCameraDirector : MonoBehaviour
 {
     public CinemachineVirtualCamera Camera;
     public Position Position;
+    public TextMeshProUGUI SpectatorText;
     void Start()
     {
         var r = GetOrderedTransforms();
         StartCoroutine(SwitchCam(r?.Length > 0 ? r[^1] : null));// followLastPlace
+    }
+    private void OnEnable()
+    {
+        SpectatorText.gameObject.SetActive(true);
+        SpectatorText.text = "Spectating";
+    }
+    private void OnDisable()
+    {
+        SpectatorText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,6 +34,7 @@ public class AiCameraDirector : MonoBehaviour
             Camera.LookAt = target;
             Camera.CancelDamping();
             Position.player = target;
+            SpectatorText.text = $"Spectating {target.name}";
         }
         yield return new WaitForSeconds(6.0f);
         StartCoroutine(SwitchCam(GetRandom()));

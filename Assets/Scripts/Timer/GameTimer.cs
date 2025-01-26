@@ -5,25 +5,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class IntEvent : UnityEvent<int> { }
 public class GameTimer : MonoBehaviour
 {
     public int LastCheckpoint { get; private set; } = -1;
     public int CurrentLap { get; private set; } = 0;
     public UnityEvent DoLapEvent;
 
-    public UnityEvent LastLapComplete;
-
-    // Start is called before the first frame update
-    void Start()
+    public IntEvent LastLapComplete;
+    Position Position;
+    private void Start()
     {
-
+        Position = FindObjectOfType<Position>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     internal void DoCheckpoint(Checkpoint checkpoint)
     {
@@ -39,7 +35,9 @@ public class GameTimer : MonoBehaviour
             DoLapEvent.Invoke();
             if (CurrentLap == TimerDisplay.totalLaps + 1)
             {
-                LastLapComplete.Invoke();
+                //get position
+                int pos = Position.GetPosition(transform);
+                LastLapComplete.Invoke(pos);
             }
         }
     }
