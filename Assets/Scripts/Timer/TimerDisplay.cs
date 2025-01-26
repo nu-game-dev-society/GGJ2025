@@ -15,7 +15,8 @@ public class TimerDisplay : MonoBehaviour
     private int timer;
 
     public bool ShouldTick;
-
+ 
+    public bool IsFinalLap => playerGameTimer.CurrentLap == totalLaps; 
     public static int totalLaps = 3;
 
     // Start is called before the first frame update
