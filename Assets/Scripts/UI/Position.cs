@@ -34,7 +34,6 @@ public class Position : MonoBehaviour
 
         StartCoroutine(CheckPosition());
     }
-    public string DebugNames;
     public List<Tuple<Transform, float>> carPct = new List<Tuple<Transform, float>>();
     public Color HighlightColor;
     public Color BaseColor;
@@ -50,11 +49,23 @@ public class Position : MonoBehaviour
             carPct.Add(new Tuple<Transform, float>(car.transform, splinePct + (car.CurrentLap * 100)));
         }
 
-        var r = carPct.OrderByDescending(e => e.Item2).Select(x => x.Item1).ToArray();
-        DebugNames = string.Join(", ", r.Select(x => x.name));
-        for (int pos = 0; pos < r.Length; pos++)
+        for (int i = 0; i < FinishedResults.Count; i++)
         {
-            //update all ui
+            positions[FinishedResults[i].Item2-1].text = FinishedResults[i].Item1.Replace(' ', '\n');
+            if (FinishedResults[i].Item1.Equals(player.name))
+            {
+                playerPos = i + 1;
+                positions[FinishedResults[i].Item2 -1].transform.parent.GetComponent<Image>().color = HighlightColor;
+            }
+            else
+            {
+                positions[FinishedResults[i].Item2 -1].transform.parent.GetComponent<Image>().color = BaseColor;
+            }
+        }
+        var r = carPct.OrderByDescending(e => e.Item2).Select(x => x.Item1).ToArray();
+
+        for (int pos = FinishedResults.Count; pos < r.Length; pos++)
+        {            //update all ui
             if (pos < positions.Length)
             {
                 positions[pos].text = r[pos].name.Replace(' ', '\n');
