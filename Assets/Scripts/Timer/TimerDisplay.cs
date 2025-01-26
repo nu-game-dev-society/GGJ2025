@@ -34,7 +34,7 @@ public class TimerDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimerText.text = $"Lap {playerGameTimer.CurrentLap}/{totalLaps} \n {FormatTime(timer - lapStart)}\nBest: {FormatTime(bestLapTime == int.MaxValue ? 0 : bestLapTime)}";
+        TimerText.text = $"Lap {Mathf.Clamp(playerGameTimer.CurrentLap, 1, totalLaps)}/{totalLaps} \n {FormatTime(timer - lapStart)}\nBest: {FormatTime(bestLapTime == int.MaxValue ? 0 : bestLapTime)}";
     }
 
     void TimerTick()
