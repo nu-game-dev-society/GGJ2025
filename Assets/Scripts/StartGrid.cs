@@ -8,7 +8,12 @@ using UnityEngine.UIElements;
 public class StartGrid : MonoBehaviour
 {
     [SerializeField] GameObject[] fish;
+    [SerializeField] AudioSource[] readySource;
+    [SerializeField] AudioSource goSource;
+    [SerializeField] AudioSource musicSource; 
     [SerializeField] TimerDisplay timerDisplay;
+
+    [SerializeField] GameObject blackandwhite; 
 
     List<SkinnedMeshRenderer> lightRenderer = new List<SkinnedMeshRenderer>();
 
@@ -56,13 +61,15 @@ public class StartGrid : MonoBehaviour
     {
         if (shouldMove)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, targetPos) <= 0.1f)
+            if (Vector3.Distance(Camera.main.transform.position, transform.position) > 10f)
             {
-                gameObject.SetActive(false);
+                foreach(GameObject fishy in fish)
+                    fishy.SetActive(false);
             }
         }
+
+        if (timerDisplay.IsFinalLap)
+            blackandwhite.SetActive(true);
     }
 
     void UpdateLightColor(SkinnedMeshRenderer skinnedMeshRenderer, Color color, int emissive = -1)
@@ -82,6 +89,9 @@ public class StartGrid : MonoBehaviour
         {
             Debug.Log("GO!");
 
+            goSource.Play();
+            musicSource.Play();
+
             foreach (var rend in lightRenderer)
             {
                 UpdateLightColor(rend, Color.green);
@@ -94,10 +104,14 @@ public class StartGrid : MonoBehaviour
 
             timerDisplay.ShouldTick = true;
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(10f);
 
             shouldMove = true;
             yield break;
+        } 
+        else
+        {
+            readySource[curLight].Play();
         }
 
         Debug.Log(lightRenderer.Count - curLight);
