@@ -13,7 +13,6 @@ public class PlayerInputController : InputController
     private void Awake()
     {
         PlayerName = DriverNames.GetPlayerDriverName();
-        Debug.LogWarning($"set {PlayerName}");
     }
     // Start is called before the first frame update
     void Start()
