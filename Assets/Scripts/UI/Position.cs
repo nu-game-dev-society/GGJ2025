@@ -10,7 +10,7 @@ using UnityEngine.Splines;
 public class Position : MonoBehaviour
 {
     [SerializeField] SplineContainer spline;
-    [SerializeField] Transform player;
+    public Transform player;
 
     [SerializeField] TMP_Text currentPos;
     [SerializeField] TMP_Text totalPos;
@@ -21,7 +21,7 @@ public class Position : MonoBehaviour
     [SerializeField] TMP_Text[] positions;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Get car controllers
         cars = FindObjectsOfType<GameTimer>().ToArray();
@@ -31,10 +31,9 @@ public class Position : MonoBehaviour
         StartCoroutine(CheckPosition());
     }
     public string DebugNames;
-    public List<Tuple<Transform, float>> carPct;
+    public List<Tuple<Transform, float>> carPct = new List<Tuple<Transform, float>>();
     IEnumerator CheckPosition()
     {
-        yield return new WaitForSeconds(0.1f);
 
         carPct = new List<Tuple<Transform, float>>();
 
@@ -62,6 +61,7 @@ public class Position : MonoBehaviour
         }
 
         currentPos.text = playerPos.ToString();
+        yield return new WaitForSeconds(0.1f);
 
         StartCoroutine(CheckPosition());
     }
