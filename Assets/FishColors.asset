@@ -19,3 +19,5 @@ MonoBehaviour:
     SecondaryColor: {r: 0.8962264, g: 0.54691774, b: 0.13950695, a: 0}
   - PrimaryColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0}
     SecondaryColor: {r: 0, g: 0, b: 0, a: 0}
+  - PrimaryColor: {r: 0.32495022, g: 0, b: 1, a: 0}
+    SecondaryColor: {r: 0.7753379, g: 0.8301887, b: 0, a: 0}
