@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d36843c3f06a3b4e9c2e460b7545942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brakeLightsMaterial: {fileID: 2100000, guid: 6332ca2912601452ebabcc23f1ae4932, type: 2}
+  bodyRenderer: {fileID: 6374693858994161753}
   propellorAnimators:
   - {fileID: 7405515009832574237}
   - {fileID: 3679681142586691459}
@@ -440,6 +440,33 @@ MonoBehaviour:
   DoLapEvent:
     m_PersistentCalls:
       m_Calls: []
+  LastLapComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5763019478736750889}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &9113023654478407608
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +805,11 @@ Animator:
 --- !u!95 &5274128763766535733 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2991929614822771304, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_PrefabInstance: {fileID: 6968194571692080221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6374693858994161753 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4090242910051955716, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
   m_PrefabInstance: {fileID: 6968194571692080221}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6581995474145816796 stripped
