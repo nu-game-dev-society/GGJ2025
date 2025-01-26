@@ -52,7 +52,7 @@ public class Position : MonoBehaviour
             //update all ui
             if (pos < positions.Length)
             {
-                positions[pos].text = r[pos].name;
+                positions[pos].text = r[pos].name.Replace(' ', '\n');
             }
 
             if (r[pos].Equals(player))
