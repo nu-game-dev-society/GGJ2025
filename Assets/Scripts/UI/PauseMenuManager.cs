@@ -57,12 +57,9 @@ public class PauseMenuManager : MenuManager
         this.gameObject.SetActive(false);
     }
 
-    public override void Exit()
+    public override void Exit() 
     {
-        if (sceneToLoad is SceneAsset sceneToLoadAsSceneAsset)
-        {
-            SceneManager.LoadScene(sceneToLoad.name);
-        }
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnPauseInput(InputAction.CallbackContext callbackContext)
