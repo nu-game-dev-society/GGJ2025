@@ -1648,17 +1648,11 @@ PrefabInstance:
     - target: {fileID: 9104123900774626751, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
       propertyPath: inputs
       value: 
-      objectReference: {fileID: 2140874758}
+      objectReference: {fileID: 2140874762}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5763019478736750889, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2140874758}
-    - targetCorrespondingSourceObject: {fileID: 5763019478736750889, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2140874759}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
 --- !u!1 &1842871058
 GameObject:
@@ -1814,7 +1808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e1b39df5e6e2847b45823dc506a825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGameTimer: {fileID: 2140874759}
+  playerGameTimer: {fileID: 2140874761}
   TimerText: {fileID: 1842871060}
   ShouldTick: 1
   totalLaps: 3
@@ -2225,48 +2219,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2140874753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5763019478736750889, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
-  m_PrefabInstance: {fileID: 1686090136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2140874757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8586639817393523768, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
   m_PrefabInstance: {fileID: 1686090136}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2140874758
+--- !u!114 &2140874761 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2058840597817892450, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+  m_PrefabInstance: {fileID: 1686090136}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140874753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad675a7e037ce68478baaa941b101213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSteerRequest: {x: 0, y: 0, z: 0}
-  decelerationInput: 0
-  boostInput: 0
-  accelerationRequest: 0
-  isHandbrakeOn: 0
---- !u!114 &2140874759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140874753}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a418f7ffc03fab41aa86098fb134a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoLapEvent:
-    m_PersistentCalls:
-      m_Calls: []
+--- !u!114 &2140874762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8780359446016932330, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+  m_PrefabInstance: {fileID: 1686090136}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad675a7e037ce68478baaa941b101213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2609740210182578294
 PrefabInstance:
   m_ObjectHideFlags: 0

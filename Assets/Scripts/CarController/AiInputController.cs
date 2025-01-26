@@ -13,12 +13,14 @@ public class AiInputController : InputController
 
     public Rigidbody body;
 
-    private void Awake()
+    void Awake()
     {
-        PlayerName = DriverNames.GetRandom();
-    }
-    void Start()
-    {
+        string v;
+        do
+        {
+            v = DriverNames.GetRandom();
+        } while (GameObject.Find(v) != null && v != DriverNames.GetPlayerDriverName());
+        PlayerName = v;
         currentSteerRequest = Vector3.zero;
     }
     Vector3 pos;
