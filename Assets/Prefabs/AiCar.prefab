@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 689877547447752839}
   - component: {fileID: 3223829740770102445}
   - component: {fileID: 6877222880065382575}
+  - component: {fileID: 213412765605005200}
   m_Layer: 3
   m_Name: AiCar
   m_TagString: Player
@@ -284,6 +285,22 @@ MonoBehaviour:
   DoLapEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &213412765605005200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763019478736750889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bdff4d04ca0434abdf2a81fedae64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FishColorOptions: {fileID: 11400000, guid: 15c6323553ed7134f9501f13c7b7f7ef, type: 2}
+  CarColorOptions: {fileID: 11400000, guid: 7ebc02387a1233144b82e775763ab62e, type: 2}
+  Car: {fileID: 6374693858994161753}
+  Fish: {fileID: 3296618767284588030}
 --- !u!1 &9113023654478407608
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +586,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!137 &3296618767284588030 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5551796249895678371, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_PrefabInstance: {fileID: 6968194571692080221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3679681142586691459 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6027182495707411422, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
@@ -577,6 +599,11 @@ Animator:
 --- !u!95 &5274128763766535733 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2991929614822771304, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
+  m_PrefabInstance: {fileID: 6968194571692080221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6374693858994161753 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4090242910051955716, guid: 49a1d890ec50a456bb6aa78b7494f840, type: 3}
   m_PrefabInstance: {fileID: 6968194571692080221}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &7405515009832574237 stripped
