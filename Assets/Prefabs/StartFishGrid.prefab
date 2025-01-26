@@ -318,6 +318,7 @@ MonoBehaviour:
   musicSource: {fileID: 5557963708118415017}
   timerDisplay: {fileID: 0}
   blackandwhite: {fileID: 2549072398630128642}
+  ShouldTick: 1
 --- !u!1001 &955965105084067052
 PrefabInstance:
   m_ObjectHideFlags: 0
