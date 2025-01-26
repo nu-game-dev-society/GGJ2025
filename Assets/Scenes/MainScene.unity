@@ -1317,6 +1317,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1528435789883530077, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: disablename
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528435789883530077, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
       propertyPath: splineContainer
       value: 
       objectReference: {fileID: 984879505}
