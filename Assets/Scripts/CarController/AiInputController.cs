@@ -12,15 +12,18 @@ public class AiInputController : InputController
     public float turnSpeed = 15f;
 
     public Rigidbody body;
-
+    public bool disablename;
     void Awake()
     {
-        string v;
-        do
+        if (!disablename)
         {
-            v = DriverNames.GetRandom();
-        } while (GameObject.Find(v) != null && v != DriverNames.GetPlayerDriverName());
-        PlayerName = v;
+            string v;
+            do
+            {
+                v = DriverNames.GetRandom();
+            } while (GameObject.Find(v) != null && v != DriverNames.GetPlayerDriverName());
+            PlayerName = v;
+        }
         currentSteerRequest = Vector3.zero;
         boostInput = 1.0f;
     }
