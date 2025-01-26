@@ -3,11 +3,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : InputController
 {
+    [SerializeField]
+    private PauseMenuManager pauseMenuManager;
+
     private InputAction steerAction;
     private InputAction accelerateAction;
     private InputAction decelerateAction;
     private InputAction boostAction;
     private InputAction handbrakeAction;
+    private InputAction pauseAction;
 
 
     private void Awake()
@@ -22,6 +26,15 @@ public class PlayerInputController : InputController
         this.decelerateAction = InputSystem.actions.FindAction("Decelerate");
         this.boostAction = InputSystem.actions.FindAction("Boost");
         this.handbrakeAction = InputSystem.actions.FindAction("Handbrake");
+
+        this.pauseAction = InputSystem.actions.FindAction("Pause");
+        this.pauseAction.performed += (_) =>
+        {
+            if (pauseMenuManager != null)
+            {
+                pauseMenuManager.gameObject.SetActive(true);
+            }
+        };
     }
 
     // Update is called once per frame

@@ -428,6 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3784419771803931531}
   - component: {fileID: 7408787088851366627}
+  - component: {fileID: 7463946948380930892}
   m_Layer: 0
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -443,9 +444,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725001790925517281}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7047788596175022891}
@@ -469,6 +470,21 @@ MonoBehaviour:
   - {fileID: 5008232556888072099}
   indexOfCurrentlyFocusedUIElement: 0
   duplicateInputCooldown: 0.5
+--- !u!114 &7463946948380930892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725001790925517281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec546e48e3531e348acdddb9c3be8286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousMenu: {fileID: 0}
+  invertPitchToggle: {fileID: 3494504250974309226}
+  exitSettingsButton: {fileID: 5008232556888072099}
 --- !u!1 &4927477762285819142
 GameObject:
   m_ObjectHideFlags: 0

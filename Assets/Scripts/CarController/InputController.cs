@@ -10,4 +10,18 @@ public class InputController : MonoBehaviour
     public float accelerationRequest;
     public bool isHandbrakeOn;
 
+    private void OnDisable()
+    {
+        this.currentSteerRequest = Vector3.zero;
+        this.decelerationInput = 0;
+        this.boostInput = 0;
+        this.accelerationRequest = 0;
+        this.isHandbrakeOn = true;
+    }
+
+    private void OnEnable()
+    {
+        this.isHandbrakeOn = false;
+    }
+
 }
