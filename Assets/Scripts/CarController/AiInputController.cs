@@ -22,6 +22,7 @@ public class AiInputController : InputController
         } while (GameObject.Find(v) != null && v != DriverNames.GetPlayerDriverName());
         PlayerName = v;
         currentSteerRequest = Vector3.zero;
+        boostInput = 1.0f;
     }
     Vector3 pos;
     Vector3 target;

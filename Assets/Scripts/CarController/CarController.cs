@@ -33,7 +33,7 @@ public class CarController : MonoBehaviour
 
     [SerializeField]
     private float maxBoostTimeInSeconds = 1f;
-    private float remainingBoostTimeInSeconds = 1f;
+    private float remainingBoostTimeInSeconds = 0.0f;
 
     [SerializeField]
     private float accelerationRate = 10;
