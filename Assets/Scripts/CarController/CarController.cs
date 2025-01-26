@@ -4,7 +4,8 @@ public class CarController : MonoBehaviour
 {
     [Header("Aesthetics")]
     [SerializeField]
-    private Material brakeLightsMaterial;
+    private MeshRenderer bodyRenderer;
+    private MaterialPropertyBlock breakLightsMatProps;
 
     [SerializeField]
     private Animator[] propellorAnimators;
@@ -61,6 +62,10 @@ public class CarController : MonoBehaviour
     void Start()
     {
         this.angularDragWhenMoving = this.carRigidBody.angularDrag;
+
+        breakLightsMatProps = new MaterialPropertyBlock();
+        this.bodyRenderer.GetPropertyBlock(breakLightsMatProps, 1);
+
     }
 
     // Update is called once per frame
@@ -107,7 +112,8 @@ public class CarController : MonoBehaviour
 
     private void ProcessInputs()
     {
-        this.brakeLightsMaterial.SetInt("_Emissive", Mathf.Approximately(0, inputs.decelerationInput) ? 0 : 1);
+        this.breakLightsMatProps.SetInt("_Emissive", Mathf.Approximately(0, inputs.decelerationInput) ? 0 : 1);
+        this.bodyRenderer.SetPropertyBlock(breakLightsMatProps, 1);
 
         bool isBoostPermitted = inputs.boostInput > 0.5f && remainingBoostTimeInSeconds > 0f;
         float permittedBoostAmount = 0f;
