@@ -21,6 +21,7 @@ public class AiCameraDirector : MonoBehaviour
         {
             Camera.Follow = target;
             Camera.LookAt = target;
+            Camera.CancelDamping();
             Position.player = target;
         }
         yield return new WaitForSeconds(6.0f);
