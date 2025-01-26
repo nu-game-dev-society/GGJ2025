@@ -15,6 +15,9 @@ public class Position : MonoBehaviour
     [SerializeField] TMP_Text totalPos;
 
     GameTimer[] cars;
+    public int playerPos;
+
+    [SerializeField] TMP_Text[] positions;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +29,7 @@ public class Position : MonoBehaviour
 
         StartCoroutine(CheckPosition());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
+    public string DebugNames;
     IEnumerator CheckPosition()
     {
         yield return new WaitForSeconds(0.1f);
@@ -45,14 +43,19 @@ public class Position : MonoBehaviour
             carPct.Add(car.transform, splinePct + (car.CurrentLap * 100));
         }
 
-        int playerPos = 0;
-
-        foreach (var car in carPct.OrderBy(e => e.Value).Reverse())
+        var r = carPct.OrderBy(e => e.Value).Reverse().Select(x => x.Key).ToArray();
+        DebugNames = string.Join(", ", r.Select(x => x.name));
+        for (int pos = 0; pos <= r.Length; pos++)
         {
-            playerPos++;
-            if (car.Key.Equals(player))
+            //update all ui
+            if (pos < positions.Length)
             {
-                break;
+                positions[pos].text = r[pos].name;
+            }
+
+            if (r[pos].Equals(player))
+            {
+                playerPos = pos + 1;
             }
         }
 

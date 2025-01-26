@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    [field: SerializeField]
-    public string PlayerName { get; set; }
-
+    public string PlayerName { get => playerName; set { gameObject.name = value; playerName = value; } }
+    private string playerName = string.Empty;
     public Vector3 currentSteerRequest;
     public float decelerationInput;
     public float boostInput;
