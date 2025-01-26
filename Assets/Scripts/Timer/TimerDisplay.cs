@@ -21,6 +21,11 @@ public class TimerDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (playerGameTimer == null)
+        {
+            var p = FindObjectOfType<PlayerInputController>();
+            playerGameTimer = p.GetComponent<GameTimer>();
+        }
         playerGameTimer.DoLapEvent.AddListener(DoLap);
 
         InvokeRepeating("TimerTick", 0.01f, 0.01f);
@@ -29,7 +34,7 @@ public class TimerDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimerText.text = playerGameTimer.CurrentLap + "/" + totalLaps + "\n" + FormatTime(timer - lapStart) + "\nBest: " + FormatTime(bestLapTime == int.MaxValue ? 0 : bestLapTime);
+        TimerText.text = $"Lap {playerGameTimer.CurrentLap}/{totalLaps} \n {FormatTime(timer - lapStart)}\nBest: {FormatTime(bestLapTime == int.MaxValue ? 0 : bestLapTime)}";
     }
 
     void TimerTick()

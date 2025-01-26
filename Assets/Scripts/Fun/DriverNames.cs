@@ -47,16 +47,13 @@ public class DriverNames
         if (PlayerPrefs.HasKey(PlayerName))
         {
             name = PlayerPrefs.GetString(PlayerName);
-            Debug.LogWarning($"FOund Saved {name}");
-
         }
-        return name?.Length > 0 ? name : DriverNames.GetRandom();
+        return name?.Length > 0 ? name : GetRandom();
     }
     public static void SetPlayerDriverName(string name)
     {
-        Debug.Log($"Saving Name {name}");
         if (PlayerPrefs.HasKey(PlayerName))
             PlayerPrefs.DeleteKey(PlayerName);
-        PlayerPrefs.SetString(PlayerName, name?.Length > 0 ? name : DriverNames.GetRandom());
+        PlayerPrefs.SetString(PlayerName, name?.Length > 0 ? name : GetRandom());
     }
 }

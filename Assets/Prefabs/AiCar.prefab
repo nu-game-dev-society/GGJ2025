@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef26e778643bb8a4ebe769b308934829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSteerRequest: {x: 0.35524127, y: -0.4552432, z: 0}
+  currentSteerRequest: {x: 0, y: 0, z: 0}
   decelerationInput: 0
   boostInput: 0
   accelerationRequest: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   t: 0.025
   tStep: 0.025
   acceptanceV: 10
+  turnSpeed: 15
   body: {fileID: 8657131205745452475}
   crossProduct: {x: 0, y: 0, z: 0}
   pitchAngle: 0
@@ -280,7 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a418f7ffc03fab41aa86098fb134a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checkpoints: []
   DoLapEvent:
     m_PersistentCalls:
       m_Calls: []

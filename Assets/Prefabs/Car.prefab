@@ -420,7 +420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad675a7e037ce68478baaa941b101213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerName>k__BackingField: 
   currentSteerRequest: {x: 0, y: 0, z: 0}
   decelerationInput: 0
   boostInput: 0

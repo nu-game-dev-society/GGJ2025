@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,27 +31,28 @@ public class Position : MonoBehaviour
         StartCoroutine(CheckPosition());
     }
     public string DebugNames;
+    public List<Tuple<Transform, float>> carPct;
     IEnumerator CheckPosition()
     {
         yield return new WaitForSeconds(0.1f);
 
-        Dictionary<Transform, float> carPct = new Dictionary<Transform, float>();
+        carPct = new List<Tuple<Transform, float>>();
 
         foreach (GameTimer car in cars)
         {
             SplineUtility.GetNearestPoint(spline.Spline, car.transform.position, out float3 nearest, out float splinePct);
 
-            carPct.Add(car.transform, splinePct + (car.CurrentLap * 100));
+            carPct.Add(new Tuple<Transform, float>(car.transform, splinePct + (car.CurrentLap * 100)));
         }
 
-        var r = carPct.OrderBy(e => e.Value).Reverse().Select(x => x.Key).ToArray();
+        var r = carPct.OrderBy(e => e.Item2).Reverse().Select(x => x.Item1).ToArray();
         DebugNames = string.Join(", ", r.Select(x => x.name));
-        for (int pos = 0; pos <= r.Length; pos++)
+        for (int pos = 0; pos < r.Length; pos++)
         {
             //update all ui
             if (pos < positions.Length)
             {
-                positions[pos].text = r[pos].name;
+                positions[pos].text = r[pos].name.Replace(' ', '\n');
             }
 
             if (r[pos].Equals(player))
