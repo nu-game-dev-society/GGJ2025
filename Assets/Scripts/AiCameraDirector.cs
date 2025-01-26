@@ -17,12 +17,12 @@ public class AiCameraDirector : MonoBehaviour
     }
     private void OnEnable()
     {
-        SpectatorText.gameObject.SetActive(true);
+        SpectatorText?.gameObject?.SetActive(true);
         SpectatorText.text = "Spectating";
     }
     private void OnDisable()
     {
-        SpectatorText.gameObject.SetActive(false);
+        SpectatorText?.gameObject?.SetActive(false);
     }
 
     // Update is called once per frame

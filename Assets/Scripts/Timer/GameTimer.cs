@@ -36,7 +36,7 @@ public class GameTimer : MonoBehaviour
             if (CurrentLap == TimerDisplay.totalLaps + 1)
             {
                 //get position
-                int pos = Position.GetPosition(transform);
+                int pos = Position.GetFinishedPosition(transform);
                 LastLapComplete.Invoke(pos);
             }
         }
