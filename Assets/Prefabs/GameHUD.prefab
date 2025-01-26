@@ -795,6 +795,13 @@ MonoBehaviour:
   player: {fileID: 0}
   currentPos: {fileID: 7233148093159784098}
   totalPos: {fileID: 2439424411440522493}
+  playerPos: 0
+  positions:
+  - {fileID: 7435799830890765487}
+  - {fileID: 7245520747563540862}
+  - {fileID: 4978163955315799209}
+  - {fileID: 5801001332517140086}
+  DebugNames: 
 --- !u!1 &2770770509490719316
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +814,7 @@ GameObject:
   - component: {fileID: 7548499910768824266}
   - component: {fileID: 5801001332517140086}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Name1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1520,7 +1527,7 @@ GameObject:
   - component: {fileID: 3208544233189319198}
   - component: {fileID: 7435799830890765487}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Name4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1693,7 +1700,7 @@ GameObject:
   - component: {fileID: 4204161220354996977}
   - component: {fileID: 4978163955315799209}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Name2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2038,7 +2045,7 @@ GameObject:
   - component: {fileID: 769665666189603877}
   - component: {fileID: 7245520747563540862}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Name3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
