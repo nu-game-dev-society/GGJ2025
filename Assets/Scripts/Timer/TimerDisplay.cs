@@ -16,7 +16,7 @@ public class TimerDisplay : MonoBehaviour
 
     public bool ShouldTick;
 
-    [SerializeField] int totalLaps;
+    public static int totalLaps = 3;
 
     // Start is called before the first frame update
     void Start()

@@ -11,6 +11,8 @@ public class GameTimer : MonoBehaviour
     public int CurrentLap { get; private set; } = 0;
     public UnityEvent DoLapEvent;
 
+    public UnityEvent LastLapComplete;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,7 @@ public class GameTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     internal void DoCheckpoint(Checkpoint checkpoint)
@@ -35,6 +37,10 @@ public class GameTimer : MonoBehaviour
         {
             CurrentLap += 1;
             DoLapEvent.Invoke();
+            if (CurrentLap == TimerDisplay.totalLaps + 1)
+            {
+                LastLapComplete.Invoke();
+            }
         }
     }
 
