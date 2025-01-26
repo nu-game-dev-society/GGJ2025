@@ -38,7 +38,7 @@ public class DriverNames
     public static string GetRandom()
     {
         return ExampleDriverNames[
-            Random.Range(0, ExampleDriverNames.Length - 1)
+            Random.Range(0, ExampleDriverNames.Length)
             ];
     }
     public static string GetPlayerDriverName()
