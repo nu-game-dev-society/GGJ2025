@@ -130,10 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2549072398630128642, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 511753423459516046, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
+      propertyPath: timerDisplay
+      value: 
+      objectReference: {fileID: 579413648}
     - target: {fileID: 6114526590762877512, guid: 3a85faee313ca844c8bf6a687f55e846, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -475,6 +475,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+--- !u!114 &579413648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7340168748976869653, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+  m_PrefabInstance: {fileID: 1542660994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e1b39df5e6e2847b45823dc506a825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +973,38 @@ PrefabInstance:
       propertyPath: spline
       value: 
       objectReference: {fileID: 984879505}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: BaseColor.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: BaseColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: BaseColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: BaseColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: HighlightColor.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: HighlightColor.b
+      value: 0.9070992
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: HighlightColor.g
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710180077813191888, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
+      propertyPath: HighlightColor.r
+      value: 0.07338022
+      objectReference: {fileID: 0}
     - target: {fileID: 7340168748976869653, guid: 3574b2c7dac62408697ca025d82cc7ae, type: 3}
       propertyPath: playerGameTimer
       value: 
