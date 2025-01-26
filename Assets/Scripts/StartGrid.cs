@@ -23,6 +23,8 @@ public class StartGrid : MonoBehaviour
     bool shouldMove;
     Vector3 targetPos;
 
+    Color darkRed = new Color(0.6f, 0f, 0f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class StartGrid : MonoBehaviour
         foreach (var fishItem in fish)
         {
             SkinnedMeshRenderer skinnedMeshRenderer = fishItem.transform.Find("Light").GetComponent<SkinnedMeshRenderer>();
-            UpdateLightColor(skinnedMeshRenderer, Color.red, 0);
+            UpdateLightColor(skinnedMeshRenderer, darkRed, 0);
             lightRenderer.Add(skinnedMeshRenderer);
         }
 
