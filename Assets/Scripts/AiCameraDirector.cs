@@ -29,7 +29,7 @@ public class AiCameraDirector : MonoBehaviour
 
     public Transform[] GetOrderedTransforms()
     {
-        return Position.carPct.OrderBy(e => e.Item2).Reverse().Select(x => x.Item1).ToArray();
+        return Position.carPct.Where(x => x.Item1.gameObject.activeSelf).OrderBy(e => e.Item2).Reverse().Select(x => x.Item1).ToArray();
 
     }
     public Transform GetRandom()

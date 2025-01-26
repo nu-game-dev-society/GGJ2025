@@ -250,6 +250,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2620867900362779988, guid: 8d1bab967ba15294bb1360487b233c60, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1004636483}
+    - target: {fileID: 2620867900362779988, guid: 8d1bab967ba15294bb1360487b233c60, type: 3}
       propertyPath: Position
       value: 
       objectReference: {fileID: 1542660995}
@@ -325,6 +329,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: t
+      value: 0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: tStep
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: turnSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: acceptanceV
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
       propertyPath: splineContainer
       value: 
       objectReference: {fileID: 984879505}
@@ -385,6 +405,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: t
+      value: 0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: tStep
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
       propertyPath: splineContainer
       value: 
@@ -679,6 +707,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1004636483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3517793103311273258, guid: a28d360f96b738749a83bec858830504, type: 3}
+  m_PrefabInstance: {fileID: 1043599827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1043599827
@@ -983,6 +1022,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: t
+      value: 0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: tStep
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: turnSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
+      propertyPath: acceptanceV
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 689877547447752839, guid: e904a11e17340154abf68309b1b0cfcf, type: 3}
       propertyPath: splineContainer
       value: 
