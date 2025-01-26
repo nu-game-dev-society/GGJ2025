@@ -9,23 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9e935070074bd425d8615fbdc7e1b247, type: 3}
   m_Name: FishColors
   m_EditorClassIdentifier: Assembly-CSharp::FishColorOptions
   Colors:
-  - PrimaryColor: {r: 1, g: 0.14304744, b: 0.06132078, a: 0}
-    SecondaryColor: {r: 0.3443396, g: 1, b: 0.62472117, a: 0}
-  - PrimaryColor: {r: 0.9056604, g: 0.8405858, b: 0.09825563, a: 0}
-    SecondaryColor: {r: 0.8962264, g: 0.54691774, b: 0.13950695, a: 0}
-  - PrimaryColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0}
-    SecondaryColor: {r: 0, g: 0, b: 0, a: 0}
-  - PrimaryColor: {r: 0.32495022, g: 0, b: 1, a: 0}
-    SecondaryColor: {r: 0.7753379, g: 0.8301887, b: 0, a: 0}
-  - PrimaryColor: {r: 1, g: 0, b: 0.053893566, a: 0}
+  - PrimaryColor: {r: 1, g: 0.92539847, b: 0, a: 0}
+    SecondaryColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
+  - PrimaryColor: {r: 0.010130405, g: 1, b: 0, a: 0}
+    SecondaryColor: {r: 0, g: 0.5680667, b: 0.7169812, a: 0}
+  - PrimaryColor: {r: 1, g: 0.06774928, b: 0, a: 0}
     SecondaryColor: {r: 1, g: 1, b: 1, a: 0}
-  - PrimaryColor: {r: 0, g: 0, b: 0, a: 0}
-    SecondaryColor: {r: 1, g: 1, b: 1, a: 0}
-  - PrimaryColor: {r: 0, g: 1, b: 0.40715814, a: 0}
-    SecondaryColor: {r: 1, g: 0.3443396, b: 0.3443396, a: 0}
-  - PrimaryColor: {r: 0, g: 0, b: 0, a: 0}
-    SecondaryColor: {r: 1, g: 0.99501103, b: 0, a: 0}
+  - PrimaryColor: {r: 1, g: 0.9160186, b: 0, a: 0}
+    SecondaryColor: {r: 0, g: 0.070165835, b: 0.9528302, a: 0}
+  - PrimaryColor: {r: 0, g: 1, b: 0.35876274, a: 0}
+    SecondaryColor: {r: 0, g: 0.9529412, b: 0.7385972, a: 0}
+  - PrimaryColor: {r: 0.16981131, g: 0.14658241, b: 0.14784259, a: 0}
+    SecondaryColor: {r: 0.6724368, g: 0.6886792, b: 0.6850029, a: 0}
+  - PrimaryColor: {r: 1, g: 0.06132078, b: 0.86214906, a: 0}
+    SecondaryColor: {r: 0.68161976, g: 0.67058825, b: 0.6901961, a: 0}

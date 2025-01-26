@@ -4,15 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MenuManager
 {
-    [SerializeField]
+    [SerializeField] 
     private Object sceneToLoad;
 
     public override void PlayGame()
-    {
-        if (sceneToLoad is SceneAsset sceneToLoadAsSceneAsset)
-        {
-            SceneManager.LoadScene(sceneToLoad.name);
-        }
+    { 
+        SceneManager.LoadScene("MainScene");
     }
 
     public override void Exit()

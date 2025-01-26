@@ -17,7 +17,7 @@ public class DriverNames
         "Alex AlBarracuda",
         "Robert Krill-bica",
         "George Mussel",
-        "Kimi Reef-könen",
+        "Kimi Reef-konen",
         "Eddie Eel-vine",
         "Ayrton Sea-na",
         "Lando Norwhal",

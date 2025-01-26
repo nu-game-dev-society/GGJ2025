@@ -20,13 +20,10 @@ public class MenuNavigationController : MonoBehaviour
     private InputAction navigateAction;
     private InputAction submitAction;
 
-    void Start()
+    void Awake()
     {
         this.navigateAction = InputSystem.actions.FindAction("Navigate");
         this.submitAction = InputSystem.actions.FindAction("Submit");
-
-        this.navigateAction.performed += OnNavigate;
-        this.submitAction.performed += OnSubmit;
     }
 
     private void OnDestroy()
@@ -37,12 +34,18 @@ public class MenuNavigationController : MonoBehaviour
 
     private void OnEnable()
     {
+        this.navigateAction.performed += OnNavigate;
+        this.submitAction.performed += OnSubmit;
+
         this.indexOfCurrentlyFocusedUIElement = 0;
-        this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement)?.Select();        
+        this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement)?.Select();
     }
 
     private void OnDisable()
     {
+        this.navigateAction.performed -= OnNavigate;
+        this.submitAction.performed -= OnSubmit;
+
         this.indexOfCurrentlyFocusedUIElement = -1;
     }
 
@@ -83,20 +86,15 @@ public class MenuNavigationController : MonoBehaviour
         {
             return;
         }
-
-        float submitInput = callbackContext.ReadValue<float>();
-        if (submitInput > 0.5f)
+        this.currentSubmitCooldown = this.duplicateInputCooldown;
+        switch (this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement))
         {
-            this.currentSubmitCooldown = this.duplicateInputCooldown;
-            switch (this.focusableUIElements.ElementAtOrDefault(this.indexOfCurrentlyFocusedUIElement))
-            {
-                case Button button:
-                    button.onClick.Invoke();
-                    break;
-                case Toggle toggle:
-                    toggle.isOn = !toggle.isOn;
-                    break;
-            }
+            case Button button:
+                button.onClick.Invoke();
+                break;
+            case Toggle toggle:
+                toggle.isOn = !toggle.isOn;
+                break;
         }
     }
 }

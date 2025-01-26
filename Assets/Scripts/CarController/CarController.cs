@@ -52,13 +52,13 @@ public class CarController : MonoBehaviour
 
 
     [SerializeField]
-    private InputController inputs;
+    public InputController inputs;
 
 
     [Header("AUDIO")]
     public AudioSource propellorAudioSource;
     public AudioSource boinkSource;
-    public AudioSource boostSource; 
+    public AudioSource boostSource;
 
     // Start is called before the first frame update
     void Start()
@@ -73,12 +73,12 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.ProcessInputs(); 
+        this.ProcessInputs();
 
         UpdatePropellorRotation(inputs.accelerationRequest, inputs.currentSteerRequest.y);
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         Debug.DrawRay(transform.position, inputs.currentSteerRequest, Color.red);
 
@@ -136,14 +136,14 @@ public class CarController : MonoBehaviour
         {
             boostParticleSystem.Stop();
         }
-         
+
         foreach (Animator propellorAnimator in this.propellorAnimators)
         {
-            float oldPropellorSpeed = propellorAnimators[0].GetFloat("Speed"); 
+            float oldPropellorSpeed = propellorAnimators[0].GetFloat("Speed");
 
             float newPropellorSpeed = Mathf.Lerp(oldPropellorSpeed, Mathf.Max(Mathf.Abs(this.currentSpeedRequest * 0.4f), Mathf.Abs(inputs.currentSteerRequest.y * steerRate.y * 2f)) * Time.deltaTime * 10, Time.deltaTime);
             propellorAnimator.SetFloat("Speed", newPropellorSpeed);
-            propellorAudioSource.volume = newPropellorSpeed * 1f; 
+            propellorAudioSource.volume = newPropellorSpeed * 1f;
         }
     }
 
@@ -161,7 +161,7 @@ public class CarController : MonoBehaviour
         }
     }
 
-    float lastBoink; 
+    float lastBoink;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -170,8 +170,11 @@ public class CarController : MonoBehaviour
             boinkSource.pitch = Random.Range(0.9f, 1.1f);
             boinkSource.Play();
 
-            lastBoink = Time.time; 
+            lastBoink = Time.time;
         }
     }
-
+    public void SetInputCon(InputController inputCon)
+    {
+        inputs = inputCon;
+    }
 }

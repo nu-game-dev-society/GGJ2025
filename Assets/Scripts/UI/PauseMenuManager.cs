@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MenuManager
@@ -14,13 +15,14 @@ public class PauseMenuManager : MenuManager
     [SerializeField]
     private Object sceneToLoad;
 
-    private InputController[] inputControllers;
+    [SerializeField]
+    private CarController[] carControllers;
 
     private void Start()
     {
-        if (this.inputControllers?.Any() != true)
+        if (this.carControllers?.Any() != true)
         {
-            inputControllers = FindObjectsOfType<InputController>();
+            carControllers = FindObjectsOfType<CarController>();
         }
 
         timerDisplay = timerDisplay ?? FindObjectOfType<TimerDisplay>();
@@ -29,9 +31,12 @@ public class PauseMenuManager : MenuManager
     private void OnEnable()
     {
         InputSystem.actions.FindAction("Pause").performed += OnPauseInput;
-        foreach (InputController inputController in this.inputControllers ?? (this.inputControllers = FindObjectsOfType<InputController>()))
+        foreach (CarController carController in this.carControllers ?? (this.carControllers = FindObjectsOfType<CarController>()))
         {
-            inputController.enabled = false;
+            if (carController?.inputs != null)
+            {
+                carController.inputs.enabled = false;
+            }
         }
 
         if (timerDisplay != null)
@@ -43,11 +48,11 @@ public class PauseMenuManager : MenuManager
     public override void PlayGame()
     {
         InputSystem.actions.FindAction("Pause").performed -= OnPauseInput;
-        foreach (InputController inputController in this.inputControllers ?? (this.inputControllers = FindObjectsOfType<InputController>()))
+        foreach (CarController carController in this.carControllers ?? (this.carControllers = FindObjectsOfType<CarController>()))
         {
-            if (inputController != null)
+            if (carController?.inputs != null)
             {
-                inputController.enabled = true;
+                carController.inputs.enabled = true;
             }
         }
         if (timerDisplay != null)
@@ -57,12 +62,9 @@ public class PauseMenuManager : MenuManager
         this.gameObject.SetActive(false);
     }
 
-    public override void Exit()
+    public override void Exit() 
     {
-        if (sceneToLoad is SceneAsset sceneToLoadAsSceneAsset)
-        {
-            SceneManager.LoadScene(sceneToLoad.name);
-        }
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnPauseInput(InputAction.CallbackContext callbackContext)

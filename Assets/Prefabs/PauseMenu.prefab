@@ -319,7 +319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Game!
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1ad0565c6f9744478e0020a8488a03e, type: 2}
   m_sharedMaterial: {fileID: 1794144705978633032, guid: b1ad0565c6f9744478e0020a8488a03e, type: 2}
@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 1034790428185524919}
   - component: {fileID: 3653632554349679020}
   m_Layer: 5
-  m_Name: Play Game button
+  m_Name: Resume button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
