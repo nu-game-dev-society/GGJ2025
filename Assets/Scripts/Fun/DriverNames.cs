@@ -7,8 +7,8 @@ public class DriverNames
     const string PlayerName = "PlayerName";
     public static string[] ExampleDriverNames = new string[] {
         "Seabass-tian Vettel",
-        "Lewis HamWhaleton",
-        "Mackerel Verstappen",
+        "Lewis Ham-whale-ton",
+        "Max Ver-splash-en",
         "Charles LeClam",
         "Yuki Tunada",
         "Alain Prawn-st",
@@ -34,6 +34,7 @@ public class DriverNames
         "Isaac Haddock-jar",
         "Nico Hull-kenberg",
         "Zhou Guan Yacht",
+        "Flipper Massa",
     };
     public static string GetRandom()
     {
