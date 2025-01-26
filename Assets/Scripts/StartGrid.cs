@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ public class StartGrid : MonoBehaviour
     [SerializeField] GameObject[] fish;
     [SerializeField] TimerDisplay timerDisplay;
 
-    List<Material> lightMaterials = new List<Material>();
+    List<SkinnedMeshRenderer> lightRenderer = new List<SkinnedMeshRenderer>();
 
     InputController[] inputControllers;
 
@@ -38,22 +39,8 @@ public class StartGrid : MonoBehaviour
         foreach (var fishItem in fish)
         {
             SkinnedMeshRenderer skinnedMeshRenderer = fishItem.transform.Find("Light").GetComponent<SkinnedMeshRenderer>();
-            Material[] materials = skinnedMeshRenderer.materials;
-            for (int i = 0; i < materials.Length; i++)
-            {
-                Material mat = materials[i];
-
-                // Just get the light material
-                if (!mat.name.Contains("Light")) continue;
-
-                var newMat = new Material(mat);
-                newMat.SetColor("_Color", Color.red);
-                materials[i] = newMat;
-
-                lightMaterials.Add(newMat);
-            }
-
-            skinnedMeshRenderer.SetMaterials(materials.ToList());
+            UpdateLightColor(skinnedMeshRenderer, Color.red, 0);
+            lightRenderer.Add(skinnedMeshRenderer);
         }
 
         // Final bits
@@ -78,17 +65,26 @@ public class StartGrid : MonoBehaviour
         }
     }
 
+    void UpdateLightColor(SkinnedMeshRenderer skinnedMeshRenderer, Color color, int emissive = -1)
+    {
+        var lightMaterialBlock = new MaterialPropertyBlock();
+        skinnedMeshRenderer.GetPropertyBlock(lightMaterialBlock, 1);
+        lightMaterialBlock.SetColor("_Color", color);
+        if (emissive != -1) lightMaterialBlock.SetInt("_Emissive", emissive);
+        skinnedMeshRenderer.SetPropertyBlock(lightMaterialBlock, 1);
+    }
+
     IEnumerator UpdateLight()
     {
         yield return new WaitForSeconds(1);
 
-        if (curLight == lightMaterials.Count)
+        if (curLight == lightRenderer.Count)
         {
             Debug.Log("GO!");
 
-            foreach (var mat in lightMaterials)
+            foreach (var rend in lightRenderer)
             {
-                mat.SetColor("_Color", Color.green);
+                UpdateLightColor(rend, Color.green);
             }
 
             foreach (var controller in inputControllers)
@@ -104,9 +100,9 @@ public class StartGrid : MonoBehaviour
             yield break;
         }
 
-        Debug.Log(lightMaterials.Count - curLight);
+        Debug.Log(lightRenderer.Count - curLight);
 
-        lightMaterials[curLight].SetColor("_Color", Color.yellow);
+        UpdateLightColor(lightRenderer[curLight], Color.red, 1);
         curLight++;
 
         StartCoroutine(UpdateLight());
