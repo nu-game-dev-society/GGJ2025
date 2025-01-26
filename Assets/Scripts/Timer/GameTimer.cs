@@ -27,9 +27,6 @@ public class GameTimer : MonoBehaviour
     {
         int i = CheckpointManager.Instance.Checkpoints.IndexOf(checkpoint);
 
-        Debug.Log(i);
-        Debug.Log(checkpoint);
-
         if (i != LastCheckpoint + 1 && LastCheckpoint != CheckpointManager.Instance.Checkpoints.Count - 1) return;
 
         LastCheckpoint = i;
