@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1528435789883530077, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: turnSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528435789883530077, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: acceptanceV
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528435789883530077, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: lookAheadPercentage
+      value: 0.025
+      objectReference: {fileID: 0}
     - target: {fileID: 2058840597817892450, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
       propertyPath: LastLapComplete.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -68,6 +80,18 @@ PrefabInstance:
       propertyPath: inputs
       value: 
       objectReference: {fileID: 8467356962051499776}
+    - target: {fileID: 9104123900774626751, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: steerRate.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104123900774626751, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: steerRate.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104123900774626751, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
+      propertyPath: steerRate.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8780359446016932330, guid: 5a6a88d7c378b7343bb87b57bf5af96a, type: 3}
     m_RemovedGameObjects: []
