@@ -63,7 +63,7 @@ public class CarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.angularDragWhenMoving = this.carRigidBody.angularDrag;
+        this.angularDragWhenMoving = this.carRigidBody.angularDamping;
 
         breakLightsMatProps = new MaterialPropertyBlock();
         this.bodyRenderer.GetPropertyBlock(breakLightsMatProps, 1);
@@ -84,7 +84,7 @@ public class CarController : MonoBehaviour
 
         // steer        
         this.carRigidBody.AddRelativeTorque(Vector3.Scale(inputs.currentSteerRequest, this.steerRate));
-        this.carRigidBody.angularDrag = inputs.currentSteerRequest == Vector3.zero
+        this.carRigidBody.angularDamping = inputs.currentSteerRequest == Vector3.zero
             ? this.angularDragWhenIdle
             : this.angularDragWhenMoving;
 

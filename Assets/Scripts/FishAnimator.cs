@@ -20,7 +20,7 @@ public class FishAnimator : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 localVelThisFrame = PlayerController.transform.InverseTransformDirection(PlayerController.velocity);
+        Vector3 localVelThisFrame = PlayerController.transform.InverseTransformDirection(PlayerController.linearVelocity);
 
         Vector3 clamped = new Vector3(
             Mathf.Sign(localVelThisFrame.x) * Mathf.Lerp(0, Range.x, (Mathf.Abs(localVelThisFrame.x) / 20f)),
